@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - node # Latest stable
+  - lts/* # Latest LTS
+os:
+  - linux
+  - windows
+  - osx
+script:
+  - npm run build:prod
