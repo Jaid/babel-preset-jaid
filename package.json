@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-jaid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",

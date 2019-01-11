@@ -3,27 +3,27 @@ const isDevelopment = process.env.NODE_ENV !== "production"
 const presets = []
 const plugins = []
 
-const addPlugin = (plugin, config) => {
-  if (config) {
-    plugins.push([plugin, config])
+const addPlugin = (plugin, options) => {
+  if (options) {
+    plugins.push([plugin, options])
   } else {
     plugins.push(plugin)
   }
 }
 
-const addDevPlugin = (plugin, config) => isDevelopment && addPlugin(plugin, config)
-const addProdPlugin = (plugin, config) => !isDevelopment && addPlugin(plugin, config)
+const addDevPlugin = (plugin, options) => isDevelopment && addPlugin(plugin, options)
+const addProdPlugin = (plugin, options) => !isDevelopment && addPlugin(plugin, options)
 
-const addPreset = (preset, config) => {
-  if (config) {
-    presets.push([preset, config])
+const addPreset = (preset, options) => {
+  if (options) {
+    presets.push([preset, options])
   } else {
     presets.push(preset)
   }
 }
 
-const addDevPreset = (preset, config) => isDevelopment && addPreset(preset, config)
-const addProdPreset = (preset, config) => !isDevelopment && addPreset(preset, config)
+const addDevPreset = (preset, options) => isDevelopment && addPreset(preset, options)
+const addProdPreset = (preset, options) => !isDevelopment && addPreset(preset, options)
 
 addPlugin("root-import")
 addPlugin("version")
@@ -45,7 +45,7 @@ addPreset("@babel/env", {
   }
 })
 
-config = {
+const config = {
   plugins,
   presets
 }
