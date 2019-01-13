@@ -1,42 +1,71 @@
 {
   "name": "babel-preset-jaid",
-  "version": "1.0.1",
-  "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "cross-env": "^5.2.0"
-  },
-  "peerDependencies": {
-    "@babel/core": "^7.2.2"
-  },
+  "private": true,
+  "version": "2.0.0",
   "main": "build/index.js",
   "files": [
     "build/*"
   ],
+  "author": {
+    "name": "Jaid",
+    "url": "https://github.com/jaid",
+    "email": "jaid.jsx@gmail.com"
+  },
   "engines": {
     "node": ">10.0.0"
   },
-  "dependencies": {
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/plugin-proposal-pipeline-operator": "^7.2.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "babel-plugin-console-source": "^2.0.1",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-optimize-starts-with": "^1.0.1",
+    "babel-plugin-react-require": "^3.0.1",
     "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-tailcall-optimization": "^2.0.0",
     "babel-plugin-transform-imports": "^1.5.1",
+    "babel-plugin-transform-react-class-to-function": "^1.2.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "babel-plugin-version": "^0.2.3",
     "babel-preset-minify": "^0.5.0",
-    "faster.js": "^1.1.0"
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.0",
+    "emp": "^2.0.0",
+    "faster.js": "^1.1.0",
+    "filter-obj": "^1.1.0",
+    "fs-extra": "^7.0.1",
+    "js-yaml": "^3.12.1",
+    "lerna": "^3.10.5",
+    "lodash": "^4.17.11",
+    "pretty-bytes": "^5.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-hot-loader": "^4.6.3"
   },
   "license": "MIT",
   "repository": "github:Jaid/babel-preset-jaid",
-  "description": "My personal Babel preset for Node modules.",
   "scripts": {
-    "build:dev": "cross-env babel --presets=./index.js index.js --out-dir=build",
-    "build:prod": "cross-env NODE_ENV=production babel --presets=./index.js index.js --out-dir=build",
-    "prepublishOnly": "npm run build:prod"
+    "build:dev": "cross-env babel-node build.js",
+    "build:prod": "cross-env NODE_ENV=production babel-node build.js",
+    "release": "npm run build:prod && lerna publish"
   }
 }

@@ -1,0 +1,5 @@
+description: My personal Babel preset for React webapps
+peerDependencies:
+  - react-hot-loader
+  - react
+  - react-dom
