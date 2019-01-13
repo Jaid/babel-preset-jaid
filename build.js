@@ -17,7 +17,7 @@ for (const name of presets) {
 
   const presetPath = path.resolve(__dirname, "packages", name)
   const buildPath = path.resolve(__dirname, "build", name)
-  const configBuildPath = path.join(buildPath, "index.json")
+  const configBuildPath = path.join(buildPath, "babel.json")
 
   empSync(buildPath)
   const pkg = jsYaml.safeLoad(fs.readFileSync(path.join(presetPath, "package.yml"), "utf-8"))
@@ -25,7 +25,6 @@ for (const name of presets) {
   const referencedModules = extractModulesFromBabelConfig(config)
   const generatedPkg = {
     name,
-    main: "index.json",
     dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key)),
     ...pick(rootPkg, "version", "author", "license", "repository"),
     ...pkg,
@@ -39,6 +38,7 @@ for (const name of presets) {
   fs.outputJsonSync(path.join(buildPath, "package.json"), generatedPkg)
   fs.copyFileSync("license.txt", path.join(buildPath, "license.txt"))
   fs.copyFileSync("readme.md", path.join(buildPath, "readme.md"))
+  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports = require(\"./babel.json\")")
 
   console.log(`  index.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
 
