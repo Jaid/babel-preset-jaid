@@ -18,6 +18,9 @@
 # Build
 /build/
 
+# Lerna
+/lerna-debug.log
+
 # IDEs
 # /.vscode/ # I'm using this!
 /.idea/
