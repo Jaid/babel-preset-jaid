@@ -12,8 +12,9 @@ export default config => {
       return babelModule.substring(modulePrefix.length)
     }
     if (babelModule.startsWith("@")) {
-      const [input, scope, moduleName] = babelModule.match(/@(.*)\/(.*)/)
-      return `@${scope}/${type}-${moduleName}`
+      //const [input, scope, moduleName] = babelModule.match(/@(.*)\/(.*)/)
+      //return `@${scope}/${type}-${moduleName}`
+      return babelModule
     }
     return `babel-${type}-${babelModule}`
   }

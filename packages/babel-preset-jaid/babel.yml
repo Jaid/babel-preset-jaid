@@ -4,9 +4,9 @@ presets:
 plugins:
   - root-import
   - version
-  - "@babel/proposal-class-properties"
-  - "@babel/proposal-optional-chaining"
-  - - "@babel/proposal-pipeline-operator"
+  - "@babel/plugin-proposal-class-properties"
+  - "@babel/plugin-proposal-optional-chaining"
+  - - "@babel/plugin-proposal-pipeline-operator"
     - proposal: "minimal" # I want to have the smart proposal in the future: https://github.com/babel/babel/pull/9179
 env:
   development:
