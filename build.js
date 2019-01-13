@@ -38,7 +38,7 @@ for (const name of presets) {
   fs.outputJsonSync(path.join(buildPath, "package.json"), generatedPkg)
   fs.copyFileSync("license.txt", path.join(buildPath, "license.txt"))
   fs.copyFileSync("readme.md", path.join(buildPath, "readme.md"))
-  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports = require(\"./babel.json\")")
+  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports = api => require(\"./babel.json\")")
 
   console.log(`  index.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
 
