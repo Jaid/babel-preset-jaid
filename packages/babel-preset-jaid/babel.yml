@@ -15,11 +15,12 @@ env:
       - console-source
   production:
     comments: false
+    presets:
+      - - minify
+        - { removeConsole: true, removeDebugger: true }
     plugins:
       - lodash
       - optimize-starts-with
       - tailcall-optimization
       - module:faster.js
       - transform-imports
-      - - minify
-        - { removeConsole: true, removeDebugger: true }
