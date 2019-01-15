@@ -1,5 +1,5 @@
 import path from "path"
-import fs from "fs-extra"
+import fs, {write} from "fs"
 import jsYaml from "js-yaml"
 import extractModulesFromBabelConfig from "./extractModulesFromBabelConfig"
 import rootPkg from "./package.json"
@@ -8,6 +8,7 @@ import filterObj from "filter-obj"
 import {pick} from "lodash"
 import chalk from "chalk"
 import prettyBytes from "pretty-bytes"
+import writeJsonFile from "write-json-file"
 
 const presets = fs.readdirSync(path.join(__dirname, "packages"))
 
@@ -36,11 +37,11 @@ for (const name of presets) {
     },
   }
 
-  fs.outputJsonSync(configBuildPath, config)
-  fs.outputJsonSync(path.join(buildPath, "package.json"), generatedPkg)
+  writeJsonFile.sync(configBuildPath, config)
+  writeJsonFile.sync(path.join(buildPath, "package.json"), generatedPkg)
   copyFile("license.txt")
   copyFile("readme.md")
-  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports = api => require(\"./babel.json\")")
+  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports=()=>require(\"./babel.json\")")
 
   console.log(`  index.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
 
