@@ -47,7 +47,7 @@
     "babel-plugin-tailcall-optimization": "^2.0.0",
     "babel-plugin-transform-imports": "^1.5.1",
     "babel-plugin-transform-react-class-to-function": "^1.2.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.23",
     "babel-plugin-version": "^0.2.3",
     "babel-preset-minify": "^0.5.0",
     "chalk": "^2.4.2",
