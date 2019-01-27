@@ -1,6 +1,0 @@
-{
-  "packages": [
-    "build/*"
-  ],
-  "version": "independent"
-}
