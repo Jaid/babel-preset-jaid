@@ -1,5 +1,5 @@
 import path from "path"
-import fs, {write} from "fs"
+import fs from "fs-extra"
 import jsYaml from "js-yaml"
 import extractModulesFromBabelConfig from "./extractModulesFromBabelConfig"
 import rootPkg from "./package.json"
@@ -8,7 +8,6 @@ import filterObj from "filter-obj"
 import {pick} from "lodash"
 import chalk from "chalk"
 import prettyBytes from "pretty-bytes"
-import writeJsonFile from "write-json-file"
 
 const presets = fs.readdirSync(path.join(__dirname, "packages"))
 
@@ -19,6 +18,7 @@ for (const name of presets) {
   const presetPath = path.resolve(__dirname, "packages", name)
   const buildPath = path.resolve(__dirname, "build", name)
   const configBuildPath = path.join(buildPath, "babel.json")
+  const packageBuildPath = path.join(buildPath, "package.json")
 
   const copyFile = file => fs.copyFileSync(file, path.join(buildPath, file))
 
@@ -28,21 +28,19 @@ for (const name of presets) {
   const referencedModules = extractModulesFromBabelConfig(config)
   const generatedPkg = {
     name,
-    dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key)),
     ...pick(rootPkg, "version", "author", "license", "repository"),
-    ...pkg,
-    peerDependencies: {
-      lodash: rootPkg.devDependencies.lodash,
-      ...pkg.peerDependencies && filterObj(rootPkg.devDependencies, key => pkg.peerDependencies.includes(key))
-    },
+    ...pick(pkg, "description"),
+    dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key) || pkg.dependencies?.includes(key)),
+    peerDependencies: pkg.peerDependencies && filterObj(rootPkg.devDependencies, key => pkg.peerDependencies.includes(key))
   }
 
-  writeJsonFile.sync(configBuildPath, config)
-  writeJsonFile.sync(path.join(buildPath, "package.json"), generatedPkg)
+  fs.outputJsonSync(configBuildPath, config)
+  fs.outputJsonSync(packageBuildPath, generatedPkg)
   copyFile("license.txt")
   copyFile("readme.md")
-  fs.writeFileSync(path.join(buildPath, "index.js"), "module.exports=()=>require(\"./babel.json\")")
+  copyFile("index.js")
 
-  console.log(`  index.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
+  console.log(`  babel.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
+  console.log(`  package.json: ${prettyBytes(fs.statSync(packageBuildPath).size)}`)
 
 }

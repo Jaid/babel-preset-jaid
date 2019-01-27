@@ -1,1 +1,5 @@
 description: My personal Babel preset for Node modules
+dependencies:
+- "@babel/core"
+- "@babel/cli"
+- "@babel/node"

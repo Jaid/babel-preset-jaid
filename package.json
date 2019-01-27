@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-jaid",
   "private": true,
-  "version": "2.6.0",
+  "version": "2.7.0",
   "main": "build/index.js",
   "files": [
     "build/*"
@@ -12,7 +12,7 @@
     "email": "jaid.jsx@gmail.com"
   },
   "engines": {
-    "node": ">10.0.0"
+    "node": ">10"
   },
   "babel": {
     "presets": [
@@ -24,6 +24,9 @@
           }
         }
       ]
+    ],
+    "plugins": [
+      "@babel/proposal-optional-chaining"
     ]
   },
   "devDependencies": {
@@ -58,8 +61,7 @@
     "pretty-bytes": "^5.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-hot-loader": "^4.6.3",
-    "write-json-file": "^3.0.2"
+    "react-hot-loader": "^4.6.3"
   },
   "license": "MIT",
   "repository": "github:Jaid/babel-preset-jaid",
