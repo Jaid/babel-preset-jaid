@@ -1,26 +1,26 @@
 presets:
-  - - "@babel/preset-env"
-    - targets: { node: 10 }
+- - "@babel/preset-env"
+  - targets: { node: 10 }
 plugins:
-  - root-import
-  - version
-  - "@babel/plugin-proposal-class-properties"
-  - "@babel/plugin-proposal-optional-chaining"
-  - - "@babel/plugin-proposal-pipeline-operator"
-    - proposal: "minimal" # I want to have the smart proposal in the future: https://github.com/babel/babel/pull/9179
+- root-import
+- version
+- "@babel/plugin-proposal-class-properties"
+- "@babel/plugin-proposal-optional-chaining"
+- - "@babel/plugin-proposal-pipeline-operator"
+  - proposal: "smart"
 env:
   development:
     sourceMaps: inline
     plugins:
-      - console-source
+    - console-source
   production:
     comments: false
     presets:
-      - - minify
-        - { removeConsole: true, removeDebugger: true }
+    - - minify
+      - { removeConsole: true, removeDebugger: true }
     plugins:
-      - lodash
-      - optimize-starts-with
-      - tailcall-optimization
-      - module:faster.js
-      - transform-imports
+    - lodash
+    - optimize-starts-with
+    - tailcall-optimization
+    - module:faster.js
+    - transform-imports
