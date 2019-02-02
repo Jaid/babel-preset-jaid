@@ -6,11 +6,9 @@
   "files": [
     "build/*"
   ],
-  "author": {
-    "name": "Jaid",
-    "url": "https://github.com/jaid",
-    "email": "jaid.jsx@gmail.com"
-  },
+  "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
+  "license": "MIT",
+  "repository": "github:Jaid/babel-preset-jaid",
   "engines": {
     "node": ">10"
   },
@@ -65,8 +63,6 @@
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.5"
   },
-  "license": "MIT",
-  "repository": "github:Jaid/babel-preset-jaid",
   "scripts": {
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
