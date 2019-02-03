@@ -9,18 +9,18 @@
 /yarn-error.log
 
 # npm
+/.npmrc
 /npm-debug.log
 /npm-debug.log.*
 
 # pnpm
+/pnpm-debug.log
 /shrinkwrap.yaml
 
-# Build
-/build/
-
-# Lerna
-/lerna-debug.log
+# Generated or temporary content
+/dist/
+/dist-jsdoc/
 
 # IDEs
-# /.vscode/ # I'm using this!
+/.vscode/
 /.idea/
