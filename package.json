@@ -67,6 +67,6 @@
   "scripts": {
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
-    "release": "npm run build:prod && foreach -g \"build/*\" -x \"npm publish build/#{base}\""
+    "release": "npm run build:prod && foreach -g \"dist/*\" -x \"npm publish dist/#{base}\""
   }
 }

@@ -16,7 +16,7 @@ for (const name of presets) {
   console.log(`- ${chalk.green(name)}`)
 
   const presetPath = path.resolve(__dirname, "packages", name)
-  const buildPath = path.resolve(__dirname, "build", name)
+  const buildPath = path.resolve(__dirname, "dist", name)
   const configBuildPath = path.join(buildPath, "babel.json")
   const packageBuildPath = path.join(buildPath, "package.json")
 
