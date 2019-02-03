@@ -65,6 +65,7 @@
     "react-hot-loader": "^4.6.5"
   },
   "scripts": {
+    "test": "npm run build:prod",
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
     "release": "npm run build:prod && foreach -g \"dist/*\" -x \"npm publish dist/#{base}\""

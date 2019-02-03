@@ -4,7 +4,4 @@ node_js:
   - lts/* # Latest LTS
 os:
   - linux
-  - windows
   - osx
-script:
-  - npm run build:prod
