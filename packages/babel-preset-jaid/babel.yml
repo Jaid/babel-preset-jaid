@@ -3,7 +3,6 @@ presets:
     - targets: { node: 10 }
 plugins:
   - root-import
-  - version
   - "@babel/plugin-proposal-class-properties"
   - "@babel/plugin-proposal-do-expressions"
   - "@babel/plugin-proposal-optional-chaining"

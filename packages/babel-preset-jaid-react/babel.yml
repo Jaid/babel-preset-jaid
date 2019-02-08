@@ -4,7 +4,6 @@ presets:
 plugins:
   - react-require
   - root-import
-  - version
   - "@babel/plugin-proposal-class-properties"
   - "@babel/plugin-proposal-do-expressions"
   - "@babel/plugin-proposal-optional-chaining"
