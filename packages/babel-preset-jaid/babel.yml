@@ -20,7 +20,6 @@ env:
         - { removeConsole: true, removeDebugger: true }
     plugins:
       - lodash
-      - optimize-starts-with
       - tailcall-optimization
       - module:faster.js
       - transform-imports
