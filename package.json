@@ -59,8 +59,8 @@
     "js-yaml": "^3.12.1",
     "lodash": "^4.17.11",
     "pretty-bytes": "^5.1.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react-hot-loader": "^4.6.5"
   },
   "scripts": {
