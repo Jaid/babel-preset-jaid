@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "babel-preset-jaid",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "license": "MIT",
   "repository": "github:Jaid/babel-preset-jaid",
