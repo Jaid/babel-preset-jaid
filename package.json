@@ -2,10 +2,6 @@
   "private": true,
   "name": "babel-preset-jaid",
   "version": "3.0.0",
-  "main": "build/index.js",
-  "files": [
-    "build/*"
-  ],
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "license": "MIT",
   "repository": "github:Jaid/babel-preset-jaid",
