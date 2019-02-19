@@ -13,6 +13,6 @@ export const configure = env => {
   if (env === "development") {
     config.plugins.push("react-hot-loader/babel")
   }
-  config.presets[0] = "@babel/preset-env"
+  config.presets[0] = "@babel/preset-env" // Removing the node target from preset-env
   return config
 }
