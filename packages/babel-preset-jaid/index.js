@@ -37,6 +37,9 @@ export const configure = env => {
   if (env === "development") {
     plugins.push("console-source")
   }
+  if (env === "test") {
+    presets.push("@ava/babel-preset-transform-test-files")
+  }
   if (env === "production") {
     config.comments = false
     presets.push([
