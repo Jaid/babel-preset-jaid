@@ -69,7 +69,7 @@
     "test": "npm run build:prod",
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
-    "release": "npm run build:prod && foreach -g \"dist/*\" -x \"terser dist/#{base}/index.js --output dist/#{base}/index.js && echo publish dist/#{base}\""
+    "release": "npm run build:prod && foreach -g \"dist/*\" -x \"terser dist/#{base}/index.js --output dist/#{base}/index.js && npm publish dist/#{base}\""
   },
   "dependencies": {}
 }
