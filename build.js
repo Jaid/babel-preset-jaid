@@ -1,46 +1,48 @@
 import path from "path"
-import fs from "fs-extra"
-import jsYaml from "js-yaml"
-import extractModulesFromBabelConfig from "./extractModulesFromBabelConfig"
-import rootPkg from "./package.json"
+
 import {empSync} from "emp"
 import filterObj from "filter-obj"
-import {pick} from "lodash"
+import {pick, uniq} from "lodash"
 import chalk from "chalk"
 import prettyBytes from "pretty-bytes"
+import fss from "@absolunet/fss"
 
-const presets = fs.readdirSync(path.join(__dirname, "packages"))
+import rootPkg from "./package.json"
+import extractModulesFromBabelConfig from "./extractModulesFromBabelConfig"
+
+const presets = fss.readdir(path.join(__dirname, "packages"))
 
 for (const name of presets) {
-
   console.log(`- ${chalk.green(name)}`)
 
   const presetPath = path.resolve(__dirname, "packages", name)
   const buildPath = path.resolve(__dirname, "dist", name)
-  const configBuildPath = path.join(buildPath, "babel.json")
   const packageBuildPath = path.join(buildPath, "package.json")
 
-  const copyFile = file => fs.copyFileSync(file, path.join(buildPath, file))
+  const copyFile = file => fss.copyFile(file, path.join(buildPath, file))
 
   empSync(buildPath)
-  const pkg = jsYaml.safeLoad(fs.readFileSync(path.join(presetPath, "package.yml"), "utf-8"))
-  const config = jsYaml.safeLoad(fs.readFileSync(path.join(presetPath, "babel.yml"), "utf-8"))
-  const referencedModules = extractModulesFromBabelConfig(config)
-  const generatedPkg = {
-    name,
-    ...pick(rootPkg, "version", "author", "license", "repository"),
-    ...pick(pkg, "description"),
-    dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key) || pkg.dependencies?.includes(key)),
-    peerDependencies: pkg.peerDependencies && filterObj(rootPkg.devDependencies, key => pkg.peerDependencies.includes(key))
+
+  let referencedModules = []
+  const {configure, description, dependencies} = require(presetPath)
+  for (const env of ["test", "development", "production"]) {
+    const envConfig = configure(env)
+    fss.outputJson(path.join(buildPath, `${env}.json`), envConfig)
+    referencedModules = [...referencedModules, ...extractModulesFromBabelConfig(envConfig)]
   }
 
-  fs.outputJsonSync(configBuildPath, config)
-  fs.outputJsonSync(packageBuildPath, generatedPkg)
+  const generatedPkg = {
+    name,
+    description,
+    ...pick(rootPkg, "version", "author", "license", "repository"),
+    dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key) || dependencies.includes(key)),
+  }
+
+  fss.outputJson(packageBuildPath, generatedPkg)
   copyFile("license.txt")
   copyFile("readme.md")
   copyFile("index.js")
 
-  console.log(`  babel.json: ${prettyBytes(fs.statSync(configBuildPath).size)}`)
-  console.log(`  package.json: ${prettyBytes(fs.statSync(packageBuildPath).size)}`)
-
+  console.log(`  index.js: ${prettyBytes(fss.stat(path.join(buildPath, "index.js")).size)}`)
+  console.log(`  package.json: ${prettyBytes(fss.stat(packageBuildPath).size)}`)
 }

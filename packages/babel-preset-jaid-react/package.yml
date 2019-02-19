@@ -1,9 +1,0 @@
-description: My personal Babel preset for React webapps
-dependencies:
-  - "@babel/core"
-  - "@babel/cli"
-  - "@babel/node"
-  - "@babel/register"
-peerDependencies:
-  - react-hot-loader
-  - react
