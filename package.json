@@ -62,13 +62,14 @@
     "pretty-bytes": "^5.1.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-hot-loader": "^4.7.0"
+    "react-hot-loader": "^4.7.0",
+    "terser": "^3.16.1"
   },
   "scripts": {
     "test": "npm run build:prod",
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
-    "release": "npm run build:prod && foreach -g \"dist/*\" -x \"npm publish dist/#{base}\""
+    "release": "npm run build:prod && foreach -g \"dist/*\" -x \"terser dist/#{base}/index.js --output dist/#{base}/index.js && echo publish dist/#{base}\""
   },
   "dependencies": {}
 }
