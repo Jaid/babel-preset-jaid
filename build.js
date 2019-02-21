@@ -36,6 +36,7 @@ for (const name of presets) {
     description,
     ...pick(rootPkg, "version", "author", "license", "repository"),
     dependencies: filterObj(rootPkg.devDependencies, key => referencedModules.includes(key) || dependencies.includes(key)),
+    peerDependencies: {...pick(rootPkg.devDependencies, "@babel/runtime")},
   }
 
   fss.outputJson(packageBuildPath, generatedPkg)

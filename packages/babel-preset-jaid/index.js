@@ -8,10 +8,18 @@ export const dependencies = [
 ]
 
 export const configure = env => {
-  const presets = ["@babel/preset-env"]
+  const presets = [
+    [
+      "@babel/preset-env",
+      {
+        modules: false,
+      },
+    ],
+  ]
   const plugins = [
     [
-      "module-resolver", {
+      "module-resolver",
+      {
         cwd: "packagejson",
         alias: {
           root: ".",
@@ -19,6 +27,7 @@ export const configure = env => {
         },
       },
     ],
+    "@babel/transform-runtime",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-do-expressions",
     "@babel/plugin-proposal-optional-chaining",
