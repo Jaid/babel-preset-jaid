@@ -51,7 +51,6 @@
     "babel-plugin-transform-imports": "^1.5.1",
     "babel-plugin-transform-react-class-to-function": "^1.2.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "babel-plugin-webpack-alias-7": "^0.1.1",
     "babel-preset-minify": "^0.5.0",
     "chalk": "^2.4.2",
     "cross-env": "^5.2.0",

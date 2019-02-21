@@ -39,7 +39,6 @@ export const configure = env => {
   }
   if (env === "test") {
     presets.push("@ava/babel-preset-transform-test-files")
-    plugins.push("webpack-alias-7")
   }
   if (env === "production") {
     config.comments = false
