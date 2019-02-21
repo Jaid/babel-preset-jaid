@@ -1,6 +1,6 @@
 import {dependencies as baseDependencies, configure as baseConfigure} from "../babel-preset-jaid"
 
-export const description = "My personal Babel preset for Node modules that use React."
+export const description = "My personal Babel preset for JavaScript project that use React."
 
 export const dependencies = [
   ...baseDependencies,

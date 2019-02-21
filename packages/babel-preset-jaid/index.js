@@ -1,4 +1,4 @@
-export const description = "My personal Babel preset for Node modules."
+export const description = "My personal Babel preset for modern JavaScript."
 
 export const dependencies = [
   "@babel/core",
@@ -8,18 +8,17 @@ export const dependencies = [
 ]
 
 export const configure = env => {
-  const presets = [
+  const presets = ["@babel/preset-env"]
+  const plugins = [
     [
-      "@babel/preset-env",
-      {
-        targets: {
-          node: 10,
+      "module-resolver", {
+        cwd: "packagejson",
+        alias: {
+          root: ".",
+          lib: "src/lib",
         },
       },
     ],
-  ]
-  const plugins = [
-    "root-import",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-do-expressions",
     "@babel/plugin-proposal-optional-chaining",
