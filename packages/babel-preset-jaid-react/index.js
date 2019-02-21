@@ -21,5 +21,7 @@ export const configure = env => {
       {development: true},
     ])
   }
+  const moduleResolverPluginIndex = config.plugins.findIndex(plugin => Array.isArray(plugin) && plugin[0] === "module-resolver")
+  config.plugins[moduleResolverPluginIndex][1].alias.components = "./src/components"
   return config
 }

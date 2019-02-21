@@ -17,7 +17,7 @@ export const configure = env => {
         cwd: "packagejson",
         alias: {
           root: ".",
-          lib: "src/lib",
+          lib: "./src/lib",
         },
       },
     ],
