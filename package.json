@@ -26,6 +26,7 @@
       "@babel/proposal-optional-chaining"
     ]
   },
+  "dependencies": {},
   "devDependencies": {
     "@absolunet/fss": "^1.4.0",
     "@ava/babel-preset-transform-test-files": "^4.0.1",
@@ -64,7 +65,7 @@
     "pretty-bytes": "^5.1.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-hot-loader": "^4.7.0",
+    "react-hot-loader": "^4.7.1",
     "terser": "^3.16.1"
   },
   "scripts": {
@@ -72,6 +73,5 @@
     "build:dev": "cross-env babel-node build.js",
     "build:prod": "cross-env NODE_ENV=production babel-node build.js",
     "release": "npm run build:prod && cross-env git tag v$npm_package_version && git push --tags && cross-env opn https://github.com/$npm_package_author_name/$(basename $PWD)/releases/new?tag=v$npm_package_version && foreach -g \"dist/*\" -x \"terser dist/#{base}/index.js --output dist/#{base}/index.js && npm publish dist/#{base}\""
-  },
-  "dependencies": {}
+  }
 }
