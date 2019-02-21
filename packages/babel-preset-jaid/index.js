@@ -5,6 +5,7 @@ export const dependencies = [
   "@babel/cli",
   "@babel/node",
   "@babel/register",
+  "@babel/plugin-transform-runtime",
 ]
 
 export const configure = env => {
