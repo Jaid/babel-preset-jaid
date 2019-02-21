@@ -2,7 +2,7 @@ import path from "path"
 
 import {empSync} from "emp"
 import filterObj from "filter-obj"
-import {pick, uniq} from "lodash"
+import {pick} from "lodash"
 import chalk from "chalk"
 import prettyBytes from "pretty-bytes"
 import fss from "@absolunet/fss"
