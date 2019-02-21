@@ -8,14 +8,7 @@ export const dependencies = [
 ]
 
 export const configure = env => {
-  const presets = [
-    [
-      "@babel/preset-env",
-      {
-        modules: false,
-      },
-    ],
-  ]
+  const presets = ["@babel/preset-env"]
   const plugins = [
     [
       "module-resolver",
