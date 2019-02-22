@@ -3,6 +3,7 @@ import fs from "fs"
 
 import {isEmpty} from "lodash"
 import preventStart from "prevent-start"
+import loadJestConfig from "load-jest-config"
 
 import BabelConfigBuilder from "./BabelConfigBuilder"
 
@@ -31,7 +32,8 @@ export default (api, type) => {
 
   const alias = {}
 
-  if (configBuilder.pkg?.jest?.moduleNameMapper) {
+  const {jestConfig} = loadJestConfig({cwd: configBuilder.cwd})
+  if (jestConfig?.moduleNameMapper) {
     debug("Found %s#jest.moduleNameMapper", configBuilder.pkgPath)
     for (const [from, to] of Object.entries(configBuilder.pkg.jest.moduleNameMapper)) {
       if (/^\^\w/i.test(from)) {
