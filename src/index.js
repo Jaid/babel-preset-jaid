@@ -32,10 +32,10 @@ export default (api, type) => {
 
   const alias = {}
 
-  const {jestConfig} = loadJestConfig({cwd: configBuilder.cwd})
+  const {jestConfigPath, jestConfig} = loadJestConfig({cwd: configBuilder.cwd})
   if (jestConfig?.moduleNameMapper) {
-    debug("Found %s#jest.moduleNameMapper", configBuilder.pkgPath)
-    for (const [from, to] of Object.entries(configBuilder.pkg.jest.moduleNameMapper)) {
+    debug("Found Jest config in %s", jestConfigPath)
+    for (const [from, to] of Object.entries(jestConfig.moduleNameMapper)) {
       if (/^\^\w/i.test(from)) {
         const fromResolved = preventStart(from, "^")
         const toResolved = path.resolve(to.replace("<rootDir>", configBuilder.cwd))
