@@ -1,34 +1,23 @@
 {
   "private": true,
-  "name": "babel-preset-jaid",
-  "version": "4.3.0",
+  "version": "2.0.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
-  "license": "MIT",
-  "repository": "github:Jaid/babel-preset-jaid",
-  "engines": {
-    "node": ">10"
+  "babel": {
+    "presets": [
+      "jaid"
+    ]
   },
   "eslintConfig": {
     "extends": "jaid"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ],
-    "plugins": [
-      "@babel/proposal-optional-chaining"
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "dist/jest/coverage",
+    "collectCoverageFrom": [
+      "src/**"
     ]
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@absolunet/fss": "^1.4.0",
+  "dependencies": {
     "@ava/babel-preset-transform-test-files": "^4.0.1",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
@@ -37,44 +26,50 @@
     "@babel/plugin-proposal-do-expressions": "^7.2.0",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
-    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.3.1",
-    "babel-jest": "^24.1.0",
+    "babel-plugin-captains-log": "^1.1.0",
     "babel-plugin-console-source": "^2.0.2",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^3.2.0",
-    "babel-plugin-optimize-starts-with": "^1.0.1",
-    "babel-plugin-react-require": "^3.1.1",
+    "babel-plugin-pkg": "^1.0.1",
     "babel-plugin-tailcall-optimization": "^2.0.0",
     "babel-plugin-transform-imports": "^1.5.1",
-    "babel-plugin-transform-react-class-to-function": "^1.2.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.0",
-    "chalk": "^2.4.2",
-    "cross-env": "^5.2.0",
-    "emp": "^2.0.0",
-    "eslint": "^5.14.1",
-    "eslint-config-jaid": "^1.11.1",
+    "debug": "^4.1.1",
     "faster.js": "^1.1.0",
-    "filter-obj": "^1.1.0",
-    "foreach-cli": "^1.8.1",
-    "jest": "^24.1.0",
     "lodash": "^4.17.11",
+    "prevent-start": "^1.0.0",
+    "read-pkg-up": "^4.0.0"
+  },
+  "devDependencies": {
+    "@absolunet/fss": "^1.4.0",
+    "ajv": "^6.9.1",
+    "babel-jest": "^24.1.0",
+    "babel-preset-jaid": "^4.3.0",
+    "caniuse-lite": "^1.0.30000938",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.14.1",
+    "eslint-config-jaid": "^1.12.0",
+    "jest": "^24.1.0",
+    "jest-config": "^24.1.0",
     "opn-cli": "^4.0.0",
-    "pretty-bytes": "^5.1.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-hot-loader": "^4.7.1",
-    "terser": "^3.16.1"
+    "rimraf": "^2.6.3",
+    "webpack-config-jaid": "^3.2.1"
   },
   "scripts": {
-    "test": "npm run build:prod",
-    "build:dev": "cross-env babel-node build.js",
-    "build:prod": "cross-env NODE_ENV=production babel-node build.js",
-    "release": "npm run build:prod && cross-env git tag v$npm_package_version && git push --tags && cross-env opn https://github.com/$npm_package_author_name/$(basename $PWD)/releases/new?tag=v$npm_package_version && foreach -g \"dist/*\" -x \"terser dist/#{base}/index.js --output dist/#{base}/index.js && npm publish dist/#{base}\""
+    "clean": "rimraf dist/ test/**/dist/",
+    "babel:prod": "rimraf dist/src-transpiled/production && cross-env NODE_ENV=production babel --out-dir dist/src-transpiled/production --source-maps true src",
+    "babel:dev": "rimraf dist/src-transpiled/development && babel --out-dir dist/src-transpiled/development src",
+    "babel:test": "rimraf dist/src-transpiled/test && cross-env NODE_ENV=test babel --out-dir dist/src-transpiled/test src",
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "build:dev": "webpack",
+    "test": "npm run build:prod && cross-env NODE_ENV=production MAIN=dist/package/production jest --runInBand",
+    "test:coverage": "npm run test:dev -- --coverage --json --outputFile=dist/jest/stats.json",
+    "test:dev": "cross-env NODE_ENV=test jest --runInBand",
+    "test:debug": "cross-env DEBUG=\"$(basename $PWD),$(basename $PWD):*\" NODE_ENV=test node --inspect=9229 node_modules/jest/bin/jest.js --runInBand",
+    "release": "npm run clean && npm test && cross-env git tag v$npm_package_version && git push --tags && cross-env opn https://github.com/$npm_package_author_name/$(basename $PWD)/releases/new?tag=v$npm_package_version"
   }
 }
