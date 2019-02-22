@@ -2,21 +2,6 @@
   "private": true,
   "version": "5.0.1",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
-  "babel": {
-    "presets": [
-      "jaid"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "jaid"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageDirectory": "dist/jest/coverage",
-    "collectCoverageFrom": [
-      "src/**"
-    ]
-  },
   "dependencies": {
     "@ava/babel-preset-transform-test-files": "^4.0.1",
     "@babel/cli": "^7.2.3",
