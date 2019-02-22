@@ -48,7 +48,7 @@
     "@absolunet/fss": "^1.4.0",
     "ajv": "^6.9.1",
     "babel-jest": "^24.1.0",
-    "babel-preset-jaid": "^4.3.0",
+    "babel-preset-jaid": "^5.0.1",
     "caniuse-lite": "^1.0.30000938",
     "cross-env": "^5.2.0",
     "eslint": "^5.14.1",
