@@ -29,8 +29,6 @@ export default (api, type) => {
   debug(`Cache identifier: ${cacheIdentifier}`)
   api.cache.using(() => cacheIdentifier)
 
-  configBuilder.preset("@babel/preset-env")
-
   const alias = {}
 
   if (configBuilder.pkg?.jest?.moduleNameMapper) {
@@ -80,6 +78,8 @@ export default (api, type) => {
   if (api.env("test")) {
     configBuilder.presetForDependency("ava", "@ava/babel-preset-transform-test-files")
   }
+
+  configBuilder.preset("@babel/preset-env")
 
   debug("Final config: %j", configBuilder.config)
 
