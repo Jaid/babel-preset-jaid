@@ -1,3 +1,5 @@
+/** @module babel-preset-jaid */
+
 import path from "path"
 import fs from "fs"
 
@@ -9,7 +11,25 @@ import BabelConfigBuilder from "./BabelConfigBuilder"
 
 const debug = require("debug")("babel-preset-jaid")
 
-export default (api, type) => {
+/**
+ * @typedef options
+ * @type {object}
+ * @property {boolean} [react=false] If `true`, `react`-related plugins and presets are included.
+ * @property {boolean} [reactDom=false] If `true`, `react-dom`-related plugins and presets are included.
+ */
+
+/**
+ * @function default
+ * @param {object} api Babel api instance
+ * @param {options} options
+ */
+export default (api, options) => {
+  options = {
+    react: false,
+    reactDom: false,
+    ...options,
+  }
+
   api.assertVersion("^7.2")
 
   const configBuilder = new BabelConfigBuilder(api)
@@ -55,6 +75,19 @@ export default (api, type) => {
   configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
 
   configBuilder.pluginForEnvsBut("production", "captains-log")
+
+  if (options.react) {
+    configBuilder.preset("@babel/preset-react", {
+      development: !api.env("production"),
+    })
+    configBuilder.pluginForEnv("production", "transform-react-class-to-function")
+    configBuilder.pluginForEnv("production", "transform-react-remove-prop-types")
+    configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
+  }
+
+  if (options.reactDom) {
+    configBuilder.pluginForEnv("development", "react-hot-loader/babel")
+  }
 
   configBuilder.presetForEnv("production", "minify", {
     removeConsole: true,
