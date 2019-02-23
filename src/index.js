@@ -14,8 +14,7 @@ const debug = require("debug")("babel-preset-jaid")
 /**
  * @typedef options
  * @type {object}
- * @property {boolean} [react=false] If `true`, `react`-related plugins and presets are included.
- * @property {boolean} [reactDom=false] If `true`, `react-dom`-related plugins and presets are included.
+ * @property {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included.
  */
 
 /**
@@ -26,7 +25,6 @@ const debug = require("debug")("babel-preset-jaid")
 export default (api, options) => {
   options = {
     react: false,
-    reactDom: false,
     ...options,
   }
 
@@ -34,7 +32,7 @@ export default (api, options) => {
 
   const configBuilder = new BabelConfigBuilder(api)
 
-  const cacheFactors = [api.version, api.env(), type || 0]
+  const cacheFactors = [api.version, api.env(), JSON.stringify(options)]
 
   if (configBuilder.pkg) {
     const packageFileStats = fs.statSync(configBuilder.pkgPath)
@@ -85,7 +83,7 @@ export default (api, options) => {
     configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
   }
 
-  if (options.reactDom) {
+  if (options.react === "react-dom") {
     configBuilder.pluginForEnv("development", "react-hot-loader/babel")
   }
 
