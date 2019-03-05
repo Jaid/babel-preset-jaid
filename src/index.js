@@ -83,6 +83,8 @@ export default (api, options) => {
     configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
   }
 
+  configBuilder.plugin("@babel/plugin-transform-runtime")
+
   if (options.react === "react-dom") {
     configBuilder.pluginForEnv("development", "react-hot-loader/babel")
   }
