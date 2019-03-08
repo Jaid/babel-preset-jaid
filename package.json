@@ -32,7 +32,6 @@
     "load-jest-config": "^1.0.0",
     "lodash": "^4.17.11",
     "prevent-start": "^1.0.0",
-    "react-hot-loader": "^4.8.0",
     "read-pkg-up": "^4.0.0"
   },
   "devDependencies": {
