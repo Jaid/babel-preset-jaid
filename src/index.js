@@ -25,6 +25,7 @@ const debug = require("debug")("babel-preset-jaid")
 export default (api, options) => {
   options = {
     react: false,
+    runtime: true,
     ...options,
   }
 
@@ -83,7 +84,9 @@ export default (api, options) => {
     configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
   }
 
-  configBuilder.plugin("@babel/plugin-transform-runtime")
+  if (options.runtime) {
+    configBuilder.plugin("@babel/plugin-transform-runtime")
+  }
 
   if (options.react === "react-dom") {
     configBuilder.pluginForEnv("development", "react-hot-loader/babel")
