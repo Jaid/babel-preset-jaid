@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "5.5.0",
+  "version": "5.6.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
     "@ava/babel-preset-transform-test-files": "^4.0.1",
