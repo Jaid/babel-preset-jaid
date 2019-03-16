@@ -72,6 +72,7 @@ export default (api, options) => {
     proposal: "smart",
   })
   configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
+  configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
 
   configBuilder.pluginForEnvsBut("production", "captains-log")
 
