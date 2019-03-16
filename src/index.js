@@ -33,7 +33,7 @@ export default (api, options) => {
 
   const configBuilder = new BabelConfigBuilder(api)
 
-  const cacheFactors = [api.version, api.env(), JSON.stringify(options)]
+  const cacheFactors = [api.version, api.env(), JSON.stringify(options), _PKG_VERSION]
 
   if (configBuilder.pkg) {
     const packageFileStats = fs.statSync(configBuilder.pkgPath)
