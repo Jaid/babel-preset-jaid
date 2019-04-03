@@ -66,6 +66,9 @@ export default (api, options) => {
     }
   }
 
+  configBuilder.plugin("@babel/plugin-proposal-decorators", {
+    decoratorsBeforeExport: true,
+  })
   configBuilder.plugin("@babel/plugin-proposal-class-properties")
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
