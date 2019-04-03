@@ -41,7 +41,7 @@
   "devDependencies": {
     "@absolunet/fss": "^1.6.0",
     "ajv": "^6.10.0",
-    "babel-preset-jaid": "^5.6.1",
+    "babel-preset-jaid": "^6.0.0",
     "caniuse-lite": "^1.0.30000957",
     "eslint": "^5.16.0",
     "eslint-config-jaid": "^1.12.0",
