@@ -67,7 +67,6 @@ export default (api, options) => {
   }
 
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    decoratorsBeforeExport: true,
     legacy: true,
   })
   configBuilder.plugin("@babel/plugin-proposal-class-properties")
