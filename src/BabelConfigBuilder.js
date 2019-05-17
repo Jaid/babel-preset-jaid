@@ -10,7 +10,7 @@ export default class BabelConfigBuilder {
     this.babelApi = babelApi
     this.cwd = cwd
     const packageJson = readPkgUp(cwd)
-    if (packageJson) {
+    if (packageJson?.pkg) {
       this.pkg = packageJson.pkg
       this.pkgPath = packageJson.path
       this.pkgDependencies = Object.keys({
