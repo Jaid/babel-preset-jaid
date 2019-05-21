@@ -3,7 +3,7 @@
 import path from "path"
 import fs from "fs"
 
-import {isEmpty} from "lodash"
+import {isEmpty, isObject} from "lodash"
 import preventStart from "prevent-start"
 import loadJestConfig from "load-jest-config"
 
@@ -104,11 +104,14 @@ export default (api, options) => {
       removeConsole: true,
       removeDebugger: true,
     }
-    const minifyOptions = options.minify === true ? defaultMinifyOptions : {
+    const minifyOptions = options.minify |> isObject ? {
       ...defaultMinifyOptions,
       ...options.minify,
-    }
+    } : defaultMinifyOptions
+    debug("Using minify options: %o", minifyOptions)
     configBuilder.presetForEnv("production", "minify", minifyOptions)
+  } else {
+    debug("Skipping minification")
   }
 
   configBuilder.pluginForEnv("production", "transform-imports")
