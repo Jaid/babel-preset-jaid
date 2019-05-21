@@ -15,6 +15,8 @@ const debug = require("debug")("babel-preset-jaid")
  * @typedef options
  * @type {object}
  * @property {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included.
+ * @property {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
+ * @property {boolean|object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: true, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config.
  */
 
 /**
@@ -25,6 +27,7 @@ const debug = require("debug")("babel-preset-jaid")
 export default (api, options) => {
   options = {
     react: false,
+    minify: true,
     runtime: true,
     ...options,
   }
@@ -96,10 +99,17 @@ export default (api, options) => {
     configBuilder.pluginForEnv("development", "react-hot-loader/babel")
   }
 
-  configBuilder.presetForEnv("production", "minify", {
-    removeConsole: true,
-    removeDebugger: true,
-  })
+  if (options.minify) {
+    const defaultMinifyOptions = {
+      removeConsole: true,
+      removeDebugger: true,
+    }
+    const minifyOptions = options.minify === true ? defaultMinifyOptions : {
+      ...defaultMinifyOptions,
+      ...options.minify,
+    }
+    configBuilder.presetForEnv("production", "minify", minifyOptions)
+  }
 
   configBuilder.pluginForEnv("production", "transform-imports")
   configBuilder.pluginForEnv("production", "lodash")
