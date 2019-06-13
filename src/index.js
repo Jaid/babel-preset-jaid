@@ -9,7 +9,7 @@ import loadJestConfig from "load-jest-config"
 
 import BabelConfigBuilder from "./BabelConfigBuilder"
 
-const debug = require("debug")("babel-preset-jaid")
+const debug = require("debug")(_PKG_NAME)
 
 /**
  * @typedef options
