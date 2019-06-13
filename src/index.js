@@ -19,6 +19,7 @@ const debug = require("debug")("babel-preset-jaid")
  * @property {boolean|object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: true, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config.
  * @property {null|object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
  * @property {boolean} [flow=false] If `true`, support Facebook Flow.
+ * @property {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
  */
 
 /**
@@ -33,6 +34,7 @@ export default (api, options) => {
     runtime: true,
     envOptions: null,
     flow: false,
+    typescript: false,
     ...options,
   }
 
@@ -85,6 +87,10 @@ export default (api, options) => {
   configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
 
   configBuilder.pluginForEnvsBut("production", "captains-log")
+
+  if (options.typescript) {
+    configBuilder.preset("@babel/preset-typescript")
+  }
 
   if (options.flow) {
     configBuilder.preset("@babel/preset-flow")
