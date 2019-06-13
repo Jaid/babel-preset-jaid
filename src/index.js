@@ -90,6 +90,9 @@ export default (api, options) => {
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
+    if (!options.minify) {
+      configBuilder.config.retainLines = true
+    }
   }
 
   if (options.flow) {

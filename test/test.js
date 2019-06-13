@@ -10,7 +10,9 @@ const run = fixture => {
   for (const env of ["test", "development", "production"]) {
     it(env, () => {
       const inDir = path.join(__dirname, "fixtures", fixture)
-      const inFile = path.join(inDir, "in.js")
+      const presetJaidOptionsFile = path.join(inDir, "presetJaidOptions.yml")
+      const presetJaidOptions = fss.pathExists(presetJaidOptionsFile) ? fss.readYaml(presetJaidOptionsFile) : {}
+      const inFile = path.join(inDir, presetJaidOptions.typescript ? "in.ts" : "in.js")
       const outputDir = path.resolve(__dirname, "..", "dist", "test", fixture, env)
       const stats = transformFileSync(inFile, {
         envName: env,
@@ -21,7 +23,7 @@ const run = fixture => {
         babelrc: false,
         presets: [
           api => {
-            const config = babelPresetJaid(api)
+            const config = babelPresetJaid(api, presetJaidOptions)
             fss.outputJson5(path.join(outputDir, "config.json5"), config, {space: 2})
             return config
           },
@@ -34,3 +36,5 @@ const run = fixture => {
 }
 
 describe("should run basic project", () => run("basic"))
+
+describe("should run TypeScript project", () => run("typescript"))
