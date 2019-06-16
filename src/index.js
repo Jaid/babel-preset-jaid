@@ -75,6 +75,7 @@ export default (api, options) => {
     }
   }
 
+  configBuilder.plugin("macros")
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
     legacy: true,
   })
