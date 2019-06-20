@@ -22,6 +22,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.4.5",
+    "aot-loader": "^1.0.1",
     "babel-jest": "^24.8.0",
     "babel-plugin-captains-log": "^1.2.0",
     "babel-plugin-console-source": "^2.0.4",

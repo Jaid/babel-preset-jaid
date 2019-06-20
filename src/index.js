@@ -20,6 +20,7 @@ const debug = require("debug")(_PKG_NAME)
  * @property {null|object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
  * @property {boolean} [flow=false] If `true`, support Facebook Flow.
  * @property {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
+ * @property {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
  */
 
 /**
@@ -35,6 +36,7 @@ export default (api, options) => {
     envOptions: null,
     flow: false,
     typescript: false,
+    aotLoader: true,
     ...options,
   }
 
@@ -79,6 +81,9 @@ export default (api, options) => {
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
     legacy: true,
   })
+  if (options.aotLoader) {
+    configBuilder.plugin("aot-loader/babel")
+  }
   configBuilder.plugin("@babel/plugin-proposal-class-properties")
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
