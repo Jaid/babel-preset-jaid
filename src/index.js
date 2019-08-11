@@ -91,6 +91,7 @@ export default (api, options) => {
   })
   configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
   configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
+  configBuilder.plugin("@babel/plugin-proposal-export-default-from")
 
   configBuilder.pluginForEnvsBut("production", "captains-log")
 
