@@ -37,27 +37,27 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.1",
     "debug": "^4.1.1",
-    "faster.js": "^1.1.0",
+    "faster.js": "^1.1.1",
     "for-own.macro": "^1.0.0",
     "jest": "^24.9.0",
     "load-jest-config": "^1.0.3",
     "lodash": "^4.17.15",
     "ms.macro": "^2.0.0",
-    "prevent-start": "^1.0.3",
+    "prevent-start": "^1.0.4",
     "read-pkg-up": "^6.0.0"
   },
   "devDependencies": {
     "@absolunet/fss": "^1.6.1",
     "acorn": "^7.0.0",
     "ajv": "^6.10.2",
-    "babel-preset-jaid": "^6.9.0",
+    "babel-preset-jaid": "^6.9.1",
     "browserslist-config-jaid-node": "^2.2.2",
     "caniuse-lite": "^1.0.30000989",
-    "eslint": "^6.2.1",
-    "eslint-config-jaid": "^1.28.2",
+    "eslint": "^6.3.0",
+    "eslint-config-jaid": "^1.29.0",
     "jest-config": "^24.9.0",
     "rimraf": "^3.0.0",
-    "webpack-config-jaid": "^5.27.3"
+    "webpack-config-jaid": "^5.27.7"
   },
   "scripts": {
     "clean": "rimraf dist/",
