@@ -1,7 +1,7 @@
 {
   "private": true,
   "webpackConfigJaid": "nodeLib",
-  "version": "6.9.3",
+  "version": "6.9.4",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
     "@ava/babel-preset-transform-test-files": "^6.0.0",
