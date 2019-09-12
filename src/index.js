@@ -84,7 +84,7 @@ export default (api, options) => {
     configBuilder.plugin("aot-loader/babel")
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    decoratorsBeforeExport: true,
+    decoratorsBeforeExport: options.legacyDecorators ? undefined : true,
     legacy: options.legacyDecorators ? true : undefined,
   })
   configBuilder.plugin("@babel/plugin-proposal-class-properties", {
