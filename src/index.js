@@ -21,6 +21,7 @@ const debug = require("debug")(_PKG_NAME)
  * @property {boolean} [flow=false] If `true`, support Facebook Flow.
  * @property {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
  * @property {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
+ * @property {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
  */
 
 /**
@@ -37,6 +38,7 @@ export default (api, options) => {
     flow: false,
     typescript: false,
     aotLoader: true,
+    legacyDecorators: true,
     ...options,
   }
 
@@ -83,10 +85,10 @@ export default (api, options) => {
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
     decoratorsBeforeExport: true,
-    legacy: true,
+    legacy: options.legacyDecorators ? true : undefined,
   })
   configBuilder.plugin("@babel/plugin-proposal-class-properties", {
-    loose: true,
+    loose: options.legacyDecorators ? true : undefined,
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
