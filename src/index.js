@@ -85,7 +85,9 @@ export default (api, options) => {
     decoratorsBeforeExport: true,
     legacy: true,
   })
-  configBuilder.plugin("@babel/plugin-proposal-class-properties")
+  configBuilder.plugin("@babel/plugin-proposal-class-properties", {
+    loose: true,
+  })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
     proposal: "smart",
