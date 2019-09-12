@@ -78,12 +78,13 @@ export default (api, options) => {
   }
 
   configBuilder.plugin("macros")
-  configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    legacy: true,
-  })
   if (options.aotLoader) {
     configBuilder.plugin("aot-loader/babel")
   }
+  configBuilder.plugin("@babel/plugin-proposal-decorators", {
+    decoratorsBeforeExport: true,
+    legacy: true,
+  })
   configBuilder.plugin("@babel/plugin-proposal-class-properties")
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
