@@ -3,6 +3,15 @@
 
 These are my personal Babel presets. They aim for minimizing boilerplate for projects that need Babel.
 
+## Installation
+<a href='https://npmjs.com/package/babel-preset-jaid'><img alt='npm logo' src='https://raw.githubusercontent.com/npm/logos/master/npm%20logo/npm-logo-red.png' height=16/></a>
+```bash
+npm install --save babel-preset-jaid@^
+```
+<a href='https://yarnpkg.com/package/babel-preset-jaid'><img alt='Yarn logo' src='https://raw.githubusercontent.com/yarnpkg/assets/master/yarn-kitten-full.png' height=24/></a>
+```bash
+yarn add babel-preset-jaid@^
+```
 
 
 ## Try it out
