@@ -1,11 +1,10 @@
 /** @module babel-preset-jaid */
 
-import path from "path"
 import fs from "fs"
-
-import {isEmpty, isObject} from "lodash"
-import preventStart from "prevent-start"
 import loadJestConfig from "load-jest-config"
+import {isEmpty, isObject} from "lodash"
+import path from "path"
+import preventStart from "prevent-start"
 
 import BabelConfigBuilder from "./BabelConfigBuilder"
 
