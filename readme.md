@@ -6,29 +6,14 @@ These are my personal Babel presets. They aim for minimizing boilerplate for pro
 ## Installation
 <a href='https://npmjs.com/package/babel-preset-jaid'><img alt='npm logo' src='https://raw.githubusercontent.com/npm/logos/master/npm%20logo/npm-logo-red.png' height=16/></a>
 ```bash
-npm install --save babel-preset-jaid@^
+npm install --save babel-preset-jaid@^6.11.1
 ```
 <a href='https://yarnpkg.com/package/babel-preset-jaid'><img alt='Yarn logo' src='https://raw.githubusercontent.com/yarnpkg/assets/master/yarn-kitten-full.png' height=24/></a>
 ```bash
-yarn add babel-preset-jaid@^
+yarn add babel-preset-jaid@^6.11.1
 ```
 
 
-## Try it out
-Open a browser's JavaScript console and execute:
-
-```javascript
-const scriptElement = document.createElement("script");
-scriptElement.setAttribute("type","text/javascript");
-scriptElement.setAttribute("src","https://unpkg.com/babel-preset-jaid@6.11.1");
-document.querySelector("head").appendChild(scriptElement);
-```
-
-The module is now loaded in a variable.
-
-```javascript
-typeof babel-preset-jaid.default
-```
 
 ## Documentation
 
