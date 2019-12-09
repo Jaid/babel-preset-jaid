@@ -15,7 +15,7 @@ const debug = require("debug")(_PKG_NAME)
  * @type {object}
  * @property {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included.
  * @property {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
- * @property {boolean|object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: true, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config.
+ * @property {boolean|object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config.
  * @property {null|object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
  * @property {boolean} [flow=false] If `true`, support Facebook Flow.
  * @property {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
