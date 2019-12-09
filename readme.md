@@ -35,7 +35,7 @@ yarn add babel-preset-jaid@^6.11.3
 | --- | --- | --- | --- |
 | [react] | <code>boolean</code> | <code>false</code> | If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included. |
 | [runtime] | <code>boolean</code> | <code>true</code> | If `true`, `@babel/plugin-transform-runtime` will be applied. |
-| [minify] | <code>boolean</code> \| <code>object</code> | <code>true</code> | If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: true, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config. |
+| [minify] | <code>boolean</code> \| <code>object</code> | <code>true</code> | If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config. |
 | [envOptions] | <code>null</code> \| <code>object</code> | <code></code> | If typeof `object`, this will be used as options for `@babel/preset-env`. |
 | [flow] | <code>boolean</code> | <code>false</code> | If `true`, support Facebook Flow. |
 | [typescript] | <code>boolean</code> | <code>false</code> | If `true`, support Microsoft TypeScript. |
