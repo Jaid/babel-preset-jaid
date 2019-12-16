@@ -6,11 +6,11 @@ These are my personal Babel presets. They aim for minimizing boilerplate for pro
 ## Installation
 <a href='https://npmjs.com/package/babel-preset-jaid'><img alt='npm logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/npm.png'/></a>
 ```bash
-npm install --save-dev babel-preset-jaid@^7.2.0
+npm install --save-dev babel-preset-jaid@^7.3.0
 ```
 <a href='https://yarnpkg.com/package/babel-preset-jaid'><img alt='Yarn logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/yarn.png'/></a>
 ```bash
-yarn add --dev babel-preset-jaid@^7.2.0
+yarn add --dev babel-preset-jaid@^7.3.0
 ```
 
 
@@ -41,7 +41,7 @@ yarn add --dev babel-preset-jaid@^7.2.0
 | [typescript] | <code>boolean</code> | <code>false</code> | If `true`, support Microsoft TypeScript. |
 | [aotLoader] | <code>boolean</code> | <code>true</code> | If `true`, `aot-loader/babel` will be applied |
 | [legacyDecorators] | <code>boolean</code> | <code>true</code> | If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true` |
-| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.yml` (can be also activated with environment variable outputBabelPresetJaid=1) |
+| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1) |
 
 
 
