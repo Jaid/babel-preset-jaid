@@ -11,16 +11,16 @@ import BabelConfigBuilder from "./BabelConfigBuilder"
 const debug = require("debug")(_PKG_NAME)
 
 /**
- * @typedef options
- * @type {object}
- * @property {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included.
- * @property {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
- * @property {boolean|object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config.
- * @property {null|object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
- * @property {boolean} [flow=false] If `true`, support Facebook Flow.
- * @property {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
- * @property {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
- * @property {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
+ * @typedef {Object} options
+ * @prop {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included.
+ * @prop {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
+ * @prop {boolean|Object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config.
+ * @prop {Object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
+ * @prop {boolean} [flow=false] If `true`, support Facebook Flow.
+ * @prop {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
+ * @prop {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
+ * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
+ * @prop {boolean} [outputConfig] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable OUTPUT_BABEL_PRESET_JAID=1)
  */
 
 /**
