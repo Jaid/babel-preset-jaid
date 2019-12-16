@@ -20,7 +20,7 @@ const debug = require("debug")(_PKG_NAME)
  * @prop {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
  * @prop {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
  * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
- * @prop {boolean} [outputConfig] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable OUTPUT_BABEL_PRESET_JAID=1)
+ * @prop {boolean} [outputConfig = false] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1)
  */
 
 /**
@@ -38,6 +38,7 @@ export default (api, options) => {
     typescript: false,
     aotLoader: true,
     legacyDecorators: true,
+    outputConfig: false,
     ...options,
   }
 
@@ -167,5 +168,11 @@ export default (api, options) => {
 
   debug("Final config: %j", configBuilder.config)
 
-  return configBuilder.config
+  if (options.outputConfig || process.env.outputBabelPresetJaid === "1") {
+    const configJson = JSON.stringify(configBuilder, null, 2)
+    const outputFile = path.join(configBuilder.cwd, "dist", "babel-preset-jaid", "config.json")
+    fs.writeFileSync(outputFile, configJson)
+  }
+
+  return configBuilder
 }
