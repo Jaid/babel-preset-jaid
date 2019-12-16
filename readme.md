@@ -41,7 +41,7 @@ yarn add --dev babel-preset-jaid@^7.1.0
 | [typescript] | <code>boolean</code> | <code>false</code> | If `true`, support Microsoft TypeScript. |
 | [aotLoader] | <code>boolean</code> | <code>true</code> | If `true`, `aot-loader/babel` will be applied |
 | [legacyDecorators] | <code>boolean</code> | <code>true</code> | If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true` |
-| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1) |
+| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.yml` (can be also activated with environment variable outputBabelPresetJaid=1) |
 
 
 
