@@ -27,7 +27,7 @@
     "babel-plugin-console-source": "^2.0.4",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-macros": "^2.8.0",
-    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-pkg": "^1.2.2",
     "babel-plugin-tailcall-optimization": "^2.0.0",
     "babel-plugin-transform-imports": "^2.0.0",
@@ -48,14 +48,14 @@
     "@absolunet/fss": "^1.6.2",
     "acorn": "^7.1.0",
     "ajv": "^6.10.2",
-    "babel-preset-jaid": "^6.11.3",
+    "babel-preset-jaid": "^7.0.0",
     "browserslist-config-jaid-node": "^2.2.2",
-    "caniuse-lite": "^1.0.30001015",
+    "caniuse-lite": "^1.0.30001016",
     "eslint": "^6.7.2",
     "eslint-config-jaid": "^1.41.0",
     "jest-config": "^24.9.0",
     "rimraf": "^3.0.0",
-    "webpack-config-jaid": "^7.1.0"
+    "webpack-config-jaid": "^7.1.1"
   },
   "scripts": {
     "clean": "rimraf dist/",
