@@ -19,7 +19,7 @@ yarn add --dev babel-preset-jaid@^7.0.0
 
 * [babel-preset-jaid](#module_babel-preset-jaid)
     * [~default(api, options)](#module_babel-preset-jaid..default)
-    * [~options](#module_babel-preset-jaid..options) : <code>object</code>
+    * [~options](#module_babel-preset-jaid..options) : <code>Object</code>
 
 **Kind**: inner method of [<code>babel-preset-jaid</code>](#module_babel-preset-jaid)  
 
@@ -33,14 +33,15 @@ yarn add --dev babel-preset-jaid@^7.0.0
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| [react] | <code>boolean</code> | <code>false</code> | If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-dom`, `react-dom`-related plugins and presets are also included. |
+| [react] | <code>boolean</code> | <code>false</code> | If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included. |
 | [runtime] | <code>boolean</code> | <code>true</code> | If `true`, `@babel/plugin-transform-runtime` will be applied. |
-| [minify] | <code>boolean</code> \| <code>object</code> | <code>true</code> | If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-minify` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will be used as `babel-minify` config. |
-| [envOptions] | <code>null</code> \| <code>object</code> | <code></code> | If typeof `object`, this will be used as options for `@babel/preset-env`. |
+| [minify] | <code>boolean</code> \| <code>Object</code> | <code>true</code> | If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config. |
+| [envOptions] | <code>Object</code> | <code></code> | If typeof `object`, this will be used as options for `@babel/preset-env`. |
 | [flow] | <code>boolean</code> | <code>false</code> | If `true`, support Facebook Flow. |
 | [typescript] | <code>boolean</code> | <code>false</code> | If `true`, support Microsoft TypeScript. |
 | [aotLoader] | <code>boolean</code> | <code>true</code> | If `true`, `aot-loader/babel` will be applied |
 | [legacyDecorators] | <code>boolean</code> | <code>true</code> | If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true` |
+| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1) |
 
 
 
