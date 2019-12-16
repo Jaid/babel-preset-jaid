@@ -174,5 +174,5 @@ export default (api, options) => {
     fs.writeFileSync(outputFile, configJson)
   }
 
-  return configBuilder
+  return configBuilder.config
 }
