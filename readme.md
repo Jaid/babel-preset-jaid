@@ -6,11 +6,11 @@ These are my personal Babel presets. They aim for minimizing boilerplate for pro
 ## Installation
 <a href='https://npmjs.com/package/babel-preset-jaid'><img alt='npm logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/npm.png'/></a>
 ```bash
-npm install --save babel-preset-jaid@^7.0.0
+npm install --save-dev babel-preset-jaid@^7.0.0
 ```
 <a href='https://yarnpkg.com/package/babel-preset-jaid'><img alt='Yarn logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/yarn.png'/></a>
 ```bash
-yarn add babel-preset-jaid@^7.0.0
+yarn add --dev babel-preset-jaid@^7.0.0
 ```
 
 
