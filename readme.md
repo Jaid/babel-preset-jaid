@@ -1,55 +1,67 @@
 # babel-preset-jaid
 
 
-These are my personal Babel presets. They aim for minimizing boilerplate for projects that need Babel.
+<a href="https://raw.githubusercontent.com/Jaid/babel-preset-jaid/master/license.txt"><img src="https://img.shields.io/github/license/Jaid/babel-preset-jaid?style=flat-square" alt="License"/></a>  
+<a href="https://actions-badge.atrox.dev/Jaid/babel-preset-jaid/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2FJaid%2Fbabel-preset-jaid%2Fbadge" alt="Build status"/></a> <a href="https://github.com/Jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/commits-since/Jaid/babel-preset-jaid/v7.3.0?style=flat-square&logo=github" alt="Commits since v7.3.0"/></a> <a href="https://github.com/Jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/last-commit/Jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/Jaid/babel-preset-jaid/issues"><img src="https://img.shields.io/github/issues/Jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Issues"/></a>  
+<a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/npm/v/babel-preset-jaid?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/Jaid/babel-preset-jaid/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/babel-preset-jaid?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/npm/dm/babel-preset-jaid?style=flat-square&logo=npm" alt="Downloads"/></a>
+
+**These are my personal Babel presets. They aim for minimizing boilerplate for projects that need Babel.**
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Installation
-<a href='https://npmjs.com/package/babel-preset-jaid'><img alt='npm logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/npm.png'/></a>
+<a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/badge/npm-babel--preset--jaid-C23039?style=flat-square&logo=npm" alt="babel-preset-jaid on npm"/></a>
 ```bash
 npm install --save-dev babel-preset-jaid@^7.3.0
 ```
-<a href='https://yarnpkg.com/package/babel-preset-jaid'><img alt='Yarn logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/yarn.png'/></a>
+<a href="https://yarnpkg.com/package/babel-preset-jaid"><img src="https://img.shields.io/badge/Yarn-babel--preset--jaid-2F8CB7?style=flat-square&logo=yarn&logoColor=white" alt="babel-preset-jaid on Yarn"/></a>
 ```bash
 yarn add --dev babel-preset-jaid@^7.3.0
 ```
 
 
 
-## Documentation
 
-* [babel-preset-jaid](#module_babel-preset-jaid)
-    * [~default(api, options)](#module_babel-preset-jaid..default)
-    * [~options](#module_babel-preset-jaid..options) : <code>Object</code>
 
-**Kind**: inner method of [<code>babel-preset-jaid</code>](#module_babel-preset-jaid)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| api | <code>object</code> | Babel api instance |
-| options | <code>options</code> |  |
 
-**Kind**: inner typedef of [<code>babel-preset-jaid</code>](#module_babel-preset-jaid)  
-**Properties**
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| [react] | <code>boolean</code> | <code>false</code> | If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included. |
-| [runtime] | <code>boolean</code> | <code>true</code> | If `true`, `@babel/plugin-transform-runtime` will be applied. |
-| [minify] | <code>boolean</code> \| <code>Object</code> | <code>true</code> | If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config. |
-| [envOptions] | <code>Object</code> | <code></code> | If typeof `object`, this will be used as options for `@babel/preset-env`. |
-| [flow] | <code>boolean</code> | <code>false</code> | If `true`, support Facebook Flow. |
-| [typescript] | <code>boolean</code> | <code>false</code> | If `true`, support Microsoft TypeScript. |
-| [aotLoader] | <code>boolean</code> | <code>true</code> | If `true`, `aot-loader/babel` will be applied |
-| [legacyDecorators] | <code>boolean</code> | <code>true</code> | If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true` |
-| [outputConfig] | <code>boolean</code> | <code>false</code> | If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1) |
+## Development
 
+
+
+Setting up:
+```bash
+git clone git@github.com:Jaid/babel-preset-jaid.git
+cd babel-preset-jaid
+npm install
+```
+Testing:
+```bash
+npm run test:dev
+```
+Testing in production environment:
+```bash
+npm run test
+```
 
 
 ## License
 ```text
 MIT License
 
-Copyright © 2019, Jaid <jaid.jsx@gmail.com> (github.com/jaid)
+Copyright © 2020, Jaid <jaid.jsx@gmail.com> (github.com/jaid)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
