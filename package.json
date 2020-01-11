@@ -52,10 +52,10 @@
     "browserslist-config-jaid-node": "^2.2.2",
     "caniuse-lite": "^1.0.30001020",
     "eslint": "^6.8.0",
-    "eslint-config-jaid": "^1.41.1",
+    "eslint-config-jaid": "^1.42.0",
     "jest-config": "^24.9.0",
     "rimraf": "^3.0.0",
-    "webpack-config-jaid": "^9.4.0"
+    "webpack-config-jaid": "^10.0.0"
   },
   "scripts": {
     "clean": "rimraf dist/",
