@@ -20,6 +20,7 @@
 
 
 
+
 ## Installation
 <a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/badge/npm-babel--preset--jaid-C23039?style=flat-square&logo=npm" alt="babel-preset-jaid on npm"/></a>
 ```bash
