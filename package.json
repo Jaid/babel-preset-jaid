@@ -72,5 +72,9 @@
   },
   "name": "babel-preset-jaid",
   "description": "These are my personal Babel presets. They aim for minimizing boilerplate for projects that need Babel.",
-  "funding": "https://github.com/sponsors/jaid"
+  "funding": "https://github.com/sponsors/jaid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaid/babel-preset-jaid"
+  }
 }
