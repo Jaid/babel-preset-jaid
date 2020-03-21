@@ -47,7 +47,6 @@ npm install --save-dev @jaid/babel-preset-jaid@^7.3.3
 
 
 
-
 ## Development
 
 
@@ -70,4 +69,4 @@ npm run test
 
 ## License
 [MIT License](https://raw.githubusercontent.com/jaid/babel-preset-jaid/master/license.txt)  
-Copyright © 2020, Jaid <jaid.jsx@gmail.com> (github.com/jaid)
+Copyright © 2020, Jaid \<jaid.jsx@gmail.com> (https://github.com/jaid)
