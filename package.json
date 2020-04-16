@@ -76,5 +76,17 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jaid/babel-preset-jaid"
-  }
+  },
+  "homepage": "https://github.com/Jaid/babel-preset-jaid",
+  "keywords": [
+    "babel",
+    "babel-config",
+    "babel-preset",
+    "babeljs",
+    "dont-repeat-yourself",
+    "dry",
+    "jaid",
+    "javascript",
+    "transpiler"
+  ]
 }
