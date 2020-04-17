@@ -3,6 +3,7 @@
   "version": "8.0.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
+    "@absolunet/fss": "^1.6.2",
     "@ava/babel-preset-transform-test-files": "^6.0.0",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -21,7 +22,6 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.9.0",
-    "@babel/runtime": "^7.9.2",
     "aot-loader": "^1.0.1",
     "babel-jest": "^25.3.0",
     "babel-plugin-console-source": "^2.0.4",
@@ -42,13 +42,12 @@
     "lodash": "^4.17.15",
     "ms.macro": "^2.0.0",
     "prevent-start": "^1.0.5",
-    "read-pkg-up": "^7.0.1",
-    "@absolunet/fss": "^1.6.2"
+    "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
     "acorn": "^7.1.1",
     "ajv": "^6.12.0",
-    "babel-preset-jaid": "^7.3.6",
+    "babel-preset-jaid": "^8.0.0",
     "browserslist-config-jaid-node": "^2.2.2",
     "caniuse-lite": "^1.0.30001042",
     "eslint": "^6.8.0",
