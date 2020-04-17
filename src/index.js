@@ -32,7 +32,7 @@ export default (api, options) => {
   options = {
     react: false,
     minify: true,
-    runtime: true,
+    runtime: false,
     envOptions: null,
     flow: false,
     typescript: false,
