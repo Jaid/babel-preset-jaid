@@ -140,14 +140,14 @@ export default (api, options) => {
     } : defaultMinifyOptions
     debug("Using minify options: %o", minifyOptions)
     configBuilder.presetForEnv("production", "minify", minifyOptions)
+    configBuilder.pluginForEnv("production", "lodash")
+    configBuilder.pluginForEnv("production", "module:faster.js")
+    configBuilder.pluginForEnv("production", "tailcall-optimization")
   } else {
     debug("Skipping minification")
   }
 
   configBuilder.pluginForEnv("production", "transform-imports")
-  configBuilder.pluginForEnv("production", "lodash")
-  configBuilder.pluginForEnv("production", "module:faster.js")
-  configBuilder.pluginForEnv("production", "tailcall-optimization")
 
   if (!isEmpty(alias)) {
     configBuilder.plugin("module-resolver", {
