@@ -42,7 +42,7 @@ export default (api, options) => {
     ...options,
   }
 
-  api.assertVersion("^7.2")
+  api.assertVersion("^7.4")
 
   const configBuilder = new BabelConfigBuilder(api)
 
