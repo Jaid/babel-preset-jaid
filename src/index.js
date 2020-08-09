@@ -134,7 +134,7 @@ export default (api, options) => {
       removeConsole: false,
       removeDebugger: true,
     }
-    const minifyOptions = options.minify |> isObject ? {
+    const minifyOptions = isObject(options.minify) ? {
       ...defaultMinifyOptions,
       ...options.minify,
     } : defaultMinifyOptions
