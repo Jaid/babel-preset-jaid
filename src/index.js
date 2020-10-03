@@ -8,7 +8,7 @@ import preventStart from "prevent-start"
 
 import BabelConfigBuilder from "./BabelConfigBuilder"
 
-const debug = require("debug")(_PKG_NAME)
+const debug = require("debug")(process.env.REPLACE_PKG_NAME)
 
 /**
  * @typedef {Object} options
@@ -46,7 +46,7 @@ export default (api, options) => {
 
   const configBuilder = new BabelConfigBuilder(api)
 
-  const cacheFactors = [api.version, api.env(), JSON.stringify(options), _PKG_VERSION]
+  const cacheFactors = [api.version, api.env(), JSON.stringify(options), process.env.REPLACE_PKG_VERSION]
 
   if (configBuilder.pkg) {
     const packageFileStats = fss.stat(configBuilder.pkgPath)
