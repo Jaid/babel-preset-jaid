@@ -22,6 +22,7 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
  * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
  * @prop {boolean} [outputConfig = false] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1)
  * @prop {boolean} [esm = true]
+ * @prop {boolean} [loose = false]
  */
 
 /**
@@ -41,6 +42,7 @@ export default (api, options) => {
     legacyDecorators: true,
     outputConfig: false,
     esm: true,
+    loose: false,
     ...options,
   }
 
@@ -167,6 +169,7 @@ export default (api, options) => {
   }
 
   const presetEnvOptions = {
+    loose: options.loose,
     ...options.envOptions,
   }
 
