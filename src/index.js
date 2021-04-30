@@ -40,7 +40,7 @@ export default (api, options) => {
     aotLoader: true,
     legacyDecorators: true,
     outputConfig: false,
-    esm: false,
+    esm: true,
     ...options,
   }
 
@@ -166,15 +166,15 @@ export default (api, options) => {
     configBuilder.presetForDependency("ava", "@ava/babel-preset-transform-test-files")
   }
 
-  const envOptions = {
+  const presetEnvOptions = {
     ...options.envOptions,
   }
 
   if (options.esm) {
-
+    presetEnvOptions.modules = false
   }
 
-  configBuilder.preset("@babel/preset-env", envOptions)
+  configBuilder.preset("@babel/preset-env", presetEnvOptions)
 
   debug("Final config: %j", configBuilder.config)
 
