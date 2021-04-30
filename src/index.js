@@ -12,7 +12,7 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
 
 /**
  * @typedef {Object} options
- * @prop {boolean} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included.
+ * @prop {boolean|string} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included.
  * @prop {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
  * @prop {boolean|Object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config.
  * @prop {Object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
@@ -21,6 +21,7 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
  * @prop {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
  * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
  * @prop {boolean} [outputConfig = false] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1)
+ * @prop {boolean} [esm = false]
  */
 
 /**
@@ -39,6 +40,7 @@ export default (api, options) => {
     aotLoader: true,
     legacyDecorators: true,
     outputConfig: false,
+    esm: false,
     ...options,
   }
 
@@ -164,7 +166,15 @@ export default (api, options) => {
     configBuilder.presetForDependency("ava", "@ava/babel-preset-transform-test-files")
   }
 
-  configBuilder.preset("@babel/preset-env", options.envOptions)
+  const envOptions = {
+    ...options.envOptions,
+  }
+
+  if (options.esm) {
+
+  }
+
+  configBuilder.preset("@babel/preset-env", envOptions)
 
   debug("Final config: %j", configBuilder.config)
 
