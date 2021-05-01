@@ -42,7 +42,7 @@
     "lodash": "^4.17.21",
     "ms.macro": "^2.0.0",
     "prevent-start": "^1.0.5",
-    "read-pkg-up": "^8.0.0"
+    "read-pkg-up": "^7"
   },
   "devDependencies": {
     "acorn": "^8.2.2",
