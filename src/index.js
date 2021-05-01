@@ -41,7 +41,7 @@ export default (api, options) => {
     aotLoader: true,
     legacyDecorators: true,
     outputConfig: false,
-    esm: true,
+    esm: false,
     loose: false,
     ...options,
   }
