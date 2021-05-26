@@ -26,7 +26,6 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-pkg": "^2.1.0",
     "babel-plugin-tailcall-optimization": "^2.0.0",
-    "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-react-class-to-function": "^1.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.1",

@@ -142,8 +142,6 @@ export default (api, options) => {
     debug("Skipping minification")
   }
 
-  configBuilder.pluginForEnv("production", "transform-imports")
-
   if (hasContent(alias)) {
     configBuilder.plugin("module-resolver", {
       alias,
