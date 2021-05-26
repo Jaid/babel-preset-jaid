@@ -19,7 +19,6 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
  * @prop {Object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
  * @prop {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
  * @prop {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
- * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
  * @prop {boolean} [outputConfig = false] If `true`, the generated Babel config will be written to `./dist/babel-preset-jaid/config.json` (can be also activated with environment variable outputBabelPresetJaid=1)
  * @prop {boolean} [esm = true]
  * @prop {boolean} [loose = false]
@@ -88,7 +87,7 @@ export default (api, options) => {
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
     decoratorsBeforeExport: true, // This is the officially right way now: https://github.com/tc39/proposal-decorators/issues/69#issuecomment-455538637
-    legacy: options.legacyDecorators,
+    legacy: false,
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
