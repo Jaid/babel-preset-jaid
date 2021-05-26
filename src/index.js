@@ -138,7 +138,6 @@ export default (api, options) => {
     } : defaultMinifyOptions
     debug("Using minify options: %o", minifyOptions)
     configBuilder.presetForEnv("production", "minify", minifyOptions)
-    configBuilder.pluginForEnv("production", "lodash")
     configBuilder.pluginForEnv("production", "module:faster.js")
     configBuilder.pluginForEnv("production", "tailcall-optimization")
   } else {
