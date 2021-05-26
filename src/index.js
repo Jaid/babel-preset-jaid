@@ -90,9 +90,6 @@ export default (api, options) => {
     decoratorsBeforeExport: options.legacyDecorators ? undefined : true,
     legacy: options.legacyDecorators ? true : undefined,
   })
-  configBuilder.plugin("@babel/plugin-proposal-class-properties", {
-    loose: options.legacyDecorators ? true : undefined,
-  })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
     proposal: "smart",
