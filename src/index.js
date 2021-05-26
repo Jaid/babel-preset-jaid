@@ -99,7 +99,6 @@ export default (api, options) => {
   })
   configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
   configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
-  configBuilder.plugin("@babel/plugin-proposal-export-default-from")
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
