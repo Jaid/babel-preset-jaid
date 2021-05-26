@@ -101,8 +101,6 @@ export default (api, options) => {
   configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
   configBuilder.plugin("@babel/plugin-proposal-export-default-from")
 
-  // configBuilder.pluginForEnvsBut("production", "captains-log")
-
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
     if (!options.minify) {
