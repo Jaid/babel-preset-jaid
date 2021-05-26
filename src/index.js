@@ -165,10 +165,6 @@ export default (api, options) => {
     cwd: configBuilder.cwd,
   })
 
-  if (api.env("test")) {
-    configBuilder.presetForDependency("ava", "@ava/babel-preset-transform-test-files")
-  }
-
   const presetEnvOptions = {
     loose: options.loose,
     ...options.envOptions,
