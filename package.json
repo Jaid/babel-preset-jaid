@@ -28,7 +28,7 @@
     "debug": "^4.3.1",
     "faster.js": "^1.1.1",
     "for-own.macro": "^1.0.0",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "has-content": "^1.1.1",
     "jest": "^27.0.1",
     "load-jest-config": "^1.0.3",
