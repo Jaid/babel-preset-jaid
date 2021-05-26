@@ -1,8 +1,9 @@
 /** @module babel-preset-jaid */
 
 import fsExtra from "fs-extra"
+import hasContent from "has-content"
 import loadJestConfig from "load-jest-config"
-import {isEmpty, isObject} from "lodash"
+import {isObject} from "lodash"
 import path from "path"
 import preventStart from "prevent-start"
 
@@ -153,7 +154,7 @@ export default (api, options) => {
 
   configBuilder.pluginForEnv("production", "transform-imports")
 
-  if (!isEmpty(alias)) {
+  if (hasContent(alias)) {
     configBuilder.plugin("module-resolver", {
       alias,
       cwd: configBuilder.cwd,

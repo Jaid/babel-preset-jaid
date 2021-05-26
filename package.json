@@ -36,6 +36,8 @@
     "debug": "^4.3.1",
     "faster.js": "^1.1.1",
     "for-own.macro": "^1.0.0",
+    "fs-extra": "^9.1.0",
+    "has-content": "^1.1.1",
     "jest": "^27.0.1",
     "load-jest-config": "^1.0.3",
     "lodash": "^4.17.21",
@@ -44,14 +46,12 @@
     "read-pkg-up": "^7"
   },
   "devDependencies": {
-    "acorn": "^8.2.4",
     "ajv": "^8.5.0",
     "babel-preset-jaid": "^11.0.0",
     "browserslist-config-jaid-node": "^3.0.0",
     "caniuse-lite": "^1.0.30001230",
     "eslint": "^7.27.0",
     "eslint-config-jaid": "^1.49.0",
-    "fs-extra": "^9.1.0",
     "jest-config": "^27.0.1",
     "rimraf": "^3.0.2",
     "tsconfig-jaid": "^2.1.1",
