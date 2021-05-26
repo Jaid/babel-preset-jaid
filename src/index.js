@@ -1,6 +1,6 @@
 /** @module babel-preset-jaid */
 
-import fss from "@absolunet/fss"
+import fsExtra from "fs-extra"
 import loadJestConfig from "load-jest-config"
 import {isEmpty, isObject} from "lodash"
 import path from "path"
@@ -53,7 +53,7 @@ export default (api, options) => {
   const cacheFactors = [api.version, api.env(), JSON.stringify(options), process.env.REPLACE_PKG_VERSION]
 
   if (configBuilder.pkg) {
-    const packageFileStats = fss.stat(configBuilder.pkgPath)
+    const packageFileStats = fsExtra.statSync(configBuilder.pkgPath)
     cacheFactors.push(configBuilder.pkgPath)
     cacheFactors.push(Number(packageFileStats.mtime))
     debug(`Loaded ${configBuilder.pkgPath}`)
@@ -183,7 +183,7 @@ export default (api, options) => {
 
   if (options.outputConfig || process.env.outputBabelPresetJaid === "1") {
     const outputFile = path.join(configBuilder.cwd, "dist", "babel-preset-jaid", "config.json")
-    fss.outputJson(outputFile, configBuilder.config, {space: 2})
+    fsExtra.outputJsonSync(outputFile, configBuilder.config, {spaces: 2})
   }
 
   return configBuilder.config
