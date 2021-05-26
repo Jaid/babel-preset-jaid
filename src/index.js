@@ -97,7 +97,6 @@ export default (api, options) => {
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
     proposal: "smart",
   })
-  configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
