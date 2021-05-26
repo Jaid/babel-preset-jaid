@@ -87,8 +87,8 @@ export default (api, options) => {
     configBuilder.plugin("aot-loader/babel")
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    decoratorsBeforeExport: options.legacyDecorators ? undefined : true,
-    legacy: options.legacyDecorators ? true : undefined,
+    decoratorsBeforeExport: true, // This is the officially right way now: https://github.com/tc39/proposal-decorators/issues/69#issuecomment-455538637
+    legacy: options.legacyDecorators,
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
