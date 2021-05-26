@@ -98,7 +98,6 @@ export default (api, options) => {
     proposal: "smart",
   })
   configBuilder.plugin("@babel/plugin-proposal-optional-chaining")
-  configBuilder.plugin("@babel/plugin-syntax-dynamic-import")
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
