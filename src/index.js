@@ -17,7 +17,6 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
  * @prop {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
  * @prop {boolean|Object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config.
  * @prop {Object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
- * @prop {boolean} [flow=false] If `true`, support Facebook Flow.
  * @prop {boolean} [typescript=false] If `true`, support Microsoft TypeScript.
  * @prop {boolean} [aotLoader=true] If `true`, `aot-loader/babel` will be applied
  * @prop {boolean} [legacyDecorators=true] If `true`, `plugin-proposal-decorators` will have `lecacy: true` and `plugin-proposal-class-properties` will have `loose: true`
@@ -37,7 +36,6 @@ export default (api, options) => {
     minify: true,
     runtime: false,
     envOptions: null,
-    flow: false,
     typescript: false,
     aotLoader: true,
     legacyDecorators: true,
@@ -110,11 +108,6 @@ export default (api, options) => {
     if (!options.minify) {
       configBuilder.config.retainLines = true
     }
-  }
-
-  if (options.flow) {
-    configBuilder.preset("@babel/preset-flow")
-    configBuilder.config.retainLines = true
   }
 
   if (options.react) {
