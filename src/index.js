@@ -13,7 +13,7 @@ const debug = require("debug")(process.env.REPLACE_PKG_NAME)
 
 /**
  * @typedef {Object} options
- * @prop {boolean|string} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If `react-, `react-dom`-related plugins and presets are also included.
+ * @prop {boolean|"dom"|"dom-lib"|"lib"} [react=false] If `true` or typeof `string`, `react`-related plugins and presets are included. If it's “dom” or “dom-lib”, `react-dom`-related plugins and presets are also included. If it's “lib” or “dom-lib”, it will be handled as library to use in other packages.
  * @prop {boolean} [runtime=true] If `true`, `@babel/plugin-transform-runtime` will be applied.
  * @prop {boolean|Object} [minify=true] If `false`, `babel-minify` won't be applied to production builds. If `true`, `babel-fy` will be applied with `{removeConsole: false, removeDebugger: true}` as configuration. If typeof `object`, this will bed as `babel-minify` config.
  * @prop {Object} [envOptions=null] If typeof `object`, this will be used as options for `@babel/preset-env`.
@@ -37,7 +37,6 @@ export default (api, options) => {
     envOptions: null,
     typescript: false,
     aotLoader: true,
-    legacyDecorators: true,
     outputConfig: false,
     esm: false,
     loose: false,
@@ -102,20 +101,26 @@ export default (api, options) => {
   }
 
   if (options.react) {
-    configBuilder.preset("@babel/preset-react", {
-      development: !api.env("production"),
-    })
-    configBuilder.pluginForEnv("production", "transform-react-class-to-function")
-    configBuilder.pluginForEnv("production", "transform-react-remove-prop-types")
-    configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
+    const reactType = typeof options.react === "string" ? options.react : "dom"
+    const isDom = reactType.startsWith("dom")
+    const isLib = reactType.endsWith("lib")
+    if (options.react) {
+      configBuilder.preset("@babel/preset-react", {
+        development: !api.env("production"),
+      })
+      if (!isLib) {
+        configBuilder.pluginForEnv("production", "transform-react-class-to-function")
+        configBuilder.pluginForEnv("production", "transform-react-remove-prop-types")
+        configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
+      }
+    }
+    if (isDom) {
+      configBuilder.pluginForEnv("development", "react-hot-loader/babel")
+    }
   }
 
   if (options.runtime) {
     configBuilder.plugin("@babel/plugin-transform-runtime")
-  }
-
-  if (options.react === "react-dom") {
-    configBuilder.pluginForEnv("development", "react-hot-loader/babel")
   }
 
   if (options.minify) {
