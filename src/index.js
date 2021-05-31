@@ -104,15 +104,13 @@ export default (api, options) => {
     const reactType = typeof options.react === "string" ? options.react : "dom"
     const isDom = reactType.startsWith("dom")
     const isLib = reactType.endsWith("lib")
-    if (options.react) {
-      configBuilder.preset("@babel/preset-react", {
-        development: !api.env("production"),
-      })
-      if (!isLib) {
-        configBuilder.pluginForEnv("production", "transform-react-class-to-function")
-        configBuilder.pluginForEnv("production", "transform-react-remove-prop-types")
-        configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
-      }
+    configBuilder.preset("@babel/preset-react", {
+      development: !api.env("production"),
+    })
+    if (!isLib) {
+      configBuilder.pluginForEnv("production", "transform-react-class-to-function")
+      configBuilder.pluginForEnv("production", "transform-react-remove-prop-types")
+      configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
     }
     if (isDom) {
       configBuilder.pluginForEnv("development", "react-hot-loader/babel")
