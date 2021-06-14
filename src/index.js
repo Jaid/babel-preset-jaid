@@ -113,7 +113,7 @@ export default (api, options) => {
       configBuilder.pluginForEnv("production", "@babel/plugin-transform-react-inline-elements")
     }
     if (isDom) {
-      configBuilder.pluginForEnv("development", "react-hot-loader/babel")
+      configBuilder.pluginForEnv("development", "react-refresh/babel")
     }
   }
 
