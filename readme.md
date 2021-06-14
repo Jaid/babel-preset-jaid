@@ -49,6 +49,9 @@ yarn add --dev babel-preset-jaid@^13.0.0
 
 ## Development
 
+<details>
+<summary><b>Development hints for maintaining and improving babel-preset-jaid</b></summary>
+
 
 
 Setting up:
@@ -66,12 +69,13 @@ Testing in production environment:
 npm run test
 ```
 
+</details>
 
 ## License
 [MIT License](https://raw.githubusercontent.com/jaid/babel-preset-jaid/master/license.txt)  
 Copyright © 2021, Jaid \<jaid.jsx@gmail.com> (https://github.com/jaid)
 
 <!---
-Readme generated with tldw v7.0.0
+Readme generated with tldw v7.1.0
 https://github.com/Jaid/tldw
 -->
