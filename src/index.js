@@ -2,7 +2,6 @@
 
 import fsExtra from "fs-extra"
 import hasContent from "has-content"
-import loadJestConfig from "load-jest-config"
 import {isObject} from "lodash"
 import path from "path"
 import preventStart from "prevent-start"
@@ -65,20 +64,26 @@ export default (api, options) => {
 
   const alias = {}
 
-  const {jestConfigPath, jestConfig} = loadJestConfig({cwd: configBuilder.cwd})
-  if (jestConfig?.moduleNameMapper) {
-    debug("Found Jest config in %s", jestConfigPath)
-    for (const [from, to] of Object.entries(jestConfig.moduleNameMapper)) {
-      if (/^\^\w/i.test(from)) {
-        const fromResolved = preventStart(from, "^")
-        const toResolved = path.resolve(to.replace("<rootDir>", configBuilder.cwd))
-        alias[fromResolved] = toResolved
-        debug("Registered alias: %s -> %s", fromResolved, toResolved)
-      } else {
-        debug("Skipping alias: %s -> %s", from, to)
-      }
-    }
-  }
+  // TODO This is a temporary hack
+  alias.root = path.resolve(configBuilder.cwd)
+  alias.src = path.resolve(configBuilder.cwd, "src")
+  alias.lib = path.resolve(configBuilder.cwd, "src", "lib")
+
+  // TODO Enable this again after fully migrating to ESM
+  // const {jestConfigPath, jestConfig} = loadJestConfig({cwd: configBuilder.cwd})
+  // if (jestConfig?.moduleNameMapper) {
+  //   debug("Found Jest config in %s", jestConfigPath)
+  //   for (const [from, to] of Object.entries(jestConfig.moduleNameMapper)) {
+  //     if (/^\^\w/i.test(from)) {
+  //       const fromResolved = preventStart(from, "^")
+  //       const toResolved = path.resolve(to.replace("<rootDir>", configBuilder.cwd))
+  //       alias[fromResolved] = toResolved
+  //       debug("Registered alias: %s -> %s", fromResolved, toResolved)
+  //     } else {
+  //       debug("Skipping alias: %s -> %s", from, to)
+  //     }
+  //   }
+  // }
 
   configBuilder.plugin("macros")
   if (options.aotLoader) {
