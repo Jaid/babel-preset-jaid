@@ -80,5 +80,6 @@
     "jaid",
     "javascript",
     "transpiler"
-  ]
+  ],
+  "type": "module"
 }
