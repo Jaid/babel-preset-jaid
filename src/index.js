@@ -1,12 +1,13 @@
 /** @module babel-preset-jaid */
 
+import path from "node:path"
+
 import fsExtra from "fs-extra"
 import hasContent from "has-content"
 import {isObject} from "lodash"
-import path from "path"
 import preventStart from "prevent-start"
 
-import BabelConfigBuilder from "./BabelConfigBuilder"
+import BabelConfigBuilder from "./BabelConfigBuilder.js"
 
 const debug = require("debug")(process.env.REPLACE_PKG_NAME)
 

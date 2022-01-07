@@ -1,6 +1,7 @@
+import path from "node:path"
+
 import fss from "@absolunet/fss"
 import {transformFileSync} from "@babel/core"
-import path from "path"
 
 const indexModule = process.env.MAIN ? path.resolve(__dirname, "..", process.env.MAIN) : path.join(__dirname, "..", "src")
 const {default: babelPresetJaid} = require(indexModule)
