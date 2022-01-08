@@ -5,7 +5,7 @@ import path from "node:path"
 import createDebug from "debug"
 import fsExtra from "fs-extra"
 import hasContent from "has-content"
-import {isObject} from "lodash"
+import {isObject} from "lodash-es"
 
 import BabelConfigBuilder from "./BabelConfigBuilder.js"
 
