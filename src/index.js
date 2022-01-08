@@ -2,14 +2,14 @@
 
 import path from "node:path"
 
+import createDebug from "debug"
 import fsExtra from "fs-extra"
 import hasContent from "has-content"
 import {isObject} from "lodash"
-import preventStart from "prevent-start"
 
 import BabelConfigBuilder from "./BabelConfigBuilder.js"
 
-const debug = require("debug")(process.env.REPLACE_PKG_NAME)
+const debug = createDebug(process.env.REPLACE_PKG_NAME)
 
 /**
  * @typedef {Object} options

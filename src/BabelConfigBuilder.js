@@ -1,4 +1,4 @@
-import {sync as readPkgUp} from "read-pkg-up"
+import {readPackageUpSync as readPkgUp} from "read-pkg-up"
 
 export default class BabelConfigBuilder {
 
