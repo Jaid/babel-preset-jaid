@@ -32,7 +32,7 @@
     "has-content": "^1.1.1",
     "jest": "^27.4.5",
     "load-jest-config": "^1.0.3",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "ms.macro": "^2.0.0",
     "prevent-start": "^1.0.5",
     "read-pkg-up": "^9"
