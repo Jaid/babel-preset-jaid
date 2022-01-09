@@ -4,10 +4,10 @@ import path from "node:path"
 
 import createDebug from "debug"
 import fsExtra from "fs-extra"
-import hasContent from "has-content"
 import {isObject} from "lodash-es"
 
 import BabelConfigBuilder from "./BabelConfigBuilder.js"
+import hasContent from "./lib/esm/has-content.js"
 
 const debug = createDebug(process.env.REPLACE_PKG_NAME)
 
