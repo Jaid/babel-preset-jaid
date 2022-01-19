@@ -161,7 +161,9 @@ export default (api, options) => {
   }
 
   if (options.esm) {
-    presetEnvOptions.modules = true
+    // This might look confusing, but “modules = false” means ESM in Babel
+    // See https://babeljs.io/docs/en/babel-preset-env#modules
+    presetEnvOptions.modules = false
   }
 
   configBuilder.preset("@babel/preset-env", presetEnvOptions)
