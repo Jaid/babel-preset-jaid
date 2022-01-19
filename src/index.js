@@ -38,7 +38,7 @@ export default (api, options) => {
     typescript: false,
     aotLoader: true,
     outputConfig: false,
-    esm: false,
+    esm: true,
     loose: false,
     ...options,
   }
@@ -161,7 +161,7 @@ export default (api, options) => {
   }
 
   if (options.esm) {
-    presetEnvOptions.modules = false
+    presetEnvOptions.modules = true
   }
 
   configBuilder.preset("@babel/preset-env", presetEnvOptions)
