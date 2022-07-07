@@ -2,7 +2,7 @@
 
 
 <a href="https://raw.githubusercontent.com/jaid/babel-preset-jaid/master/license.txt"><img src="https://img.shields.io/github/license/jaid/babel-preset-jaid?style=flat-square" alt="License"/></a> <a href="https://github.com/sponsors/jaid"><img src="https://img.shields.io/badge/<3-Sponsor-FF45F1?style=flat-square" alt="Sponsor babel-preset-jaid"/></a>  
-<a href="https://actions-badge.atrox.dev/jaid/babel-preset-jaid/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2Fjaid%2Fbabel-preset-jaid%2Fbadge" alt="Build status"/></a> <a href="https://github.com/jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/commits-since/jaid/babel-preset-jaid/v16.0.0?style=flat-square&logo=github" alt="Commits since v16.0.0"/></a> <a href="https://github.com/jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/last-commit/jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/jaid/babel-preset-jaid/issues"><img src="https://img.shields.io/github/issues/jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Issues"/></a>  
+<a href="https://actions-badge.atrox.dev/jaid/babel-preset-jaid/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2Fjaid%2Fbabel-preset-jaid%2Fbadge" alt="Build status"/></a> <a href="https://github.com/jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/commits-since/jaid/babel-preset-jaid/v17.0.0?style=flat-square&logo=github" alt="Commits since v17.0.0"/></a> <a href="https://github.com/jaid/babel-preset-jaid/commits"><img src="https://img.shields.io/github/last-commit/jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/jaid/babel-preset-jaid/issues"><img src="https://img.shields.io/github/issues/jaid/babel-preset-jaid?style=flat-square&logo=github" alt="Issues"/></a>  
 <a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/npm/v/babel-preset-jaid?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/jaid/babel-preset-jaid/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/babel-preset-jaid?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/npm/dm/babel-preset-jaid?style=flat-square&logo=npm" alt="Downloads"/></a>
 
 **These are my personal Babel presets. They aim for minimizing boilerplate for projects that need Babel.**
@@ -20,13 +20,13 @@
 <a href="https://npmjs.com/package/babel-preset-jaid"><img src="https://img.shields.io/badge/npm-babel--preset--jaid-C23039?style=flat-square&logo=npm" alt="babel-preset-jaid on npm"/></a>
 
 ```bash
-npm install --save-dev babel-preset-jaid@^16.0.0
+npm install --save-dev babel-preset-jaid@^17.0.0
 ```
 
 <a href="https://yarnpkg.com/package/babel-preset-jaid"><img src="https://img.shields.io/badge/Yarn-babel--preset--jaid-2F8CB7?style=flat-square&logo=yarn&logoColor=white" alt="babel-preset-jaid on Yarn"/></a>
 
 ```bash
-yarn add --dev babel-preset-jaid@^16.0.0
+yarn add --dev babel-preset-jaid@^17.0.0
 ```
 
 
