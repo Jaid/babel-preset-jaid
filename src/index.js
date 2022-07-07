@@ -91,13 +91,10 @@ export default (api, options) => {
     configBuilder.plugin("aot-loader/babel")
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    decoratorsBeforeExport: true, // This is the officially right way now: https://github.com/tc39/proposal-decorators/issues/69#issuecomment-455538637
-    legacy: false,
+    version: "2021-12",
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
-  configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
-    proposal: "smart",
-  })
+  configBuilder.plugin("@babel/plugin-proposal-pipeline-operator")
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
