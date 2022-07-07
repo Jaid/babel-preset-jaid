@@ -91,10 +91,13 @@ export default (api, options) => {
     configBuilder.plugin("aot-loader/babel")
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    proposal: "2021-12",
+    version: "2021-12",
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
-  configBuilder.plugin("@babel/plugin-proposal-pipeline-operator")
+  configBuilder.plugin("@babel/plugin-proposal-pipeline-operator", {
+    proposal: "hack",
+    topicToken: "^^",
+  })
 
   if (options.typescript) {
     configBuilder.preset("@babel/preset-typescript")
