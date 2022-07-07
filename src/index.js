@@ -91,7 +91,7 @@ export default (api, options) => {
     configBuilder.plugin("aot-loader/babel")
   }
   configBuilder.plugin("@babel/plugin-proposal-decorators", {
-    version: "2021-12",
+    proposal: "2021-12",
   })
   configBuilder.plugin("@babel/plugin-proposal-do-expressions")
   configBuilder.plugin("@babel/plugin-proposal-pipeline-operator")
