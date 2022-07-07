@@ -76,7 +76,7 @@ npm run test
 
 ## License
 [MIT License](https://raw.githubusercontent.com/jaid/babel-preset-jaid/master/license.txt)  
-Copyright © 2021, Jaid \<jaid.jsx@gmail.com> (https://github.com/jaid)
+Copyright © 2022, Jaid \<jaid.jsx@gmail.com> (https://github.com/jaid)
 
 <!---
 Readme generated with tldw v7.3.1
